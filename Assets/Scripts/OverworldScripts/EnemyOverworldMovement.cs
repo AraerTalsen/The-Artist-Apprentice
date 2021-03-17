@@ -133,8 +133,8 @@ public class EnemyOverworldMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Overworld/SFX/Inventory/ShakeLeft");
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Summon");
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/Overworld/SFX/Inventory/ShakeLeft");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Overworld/SFX/InkMonster");
 
             alertSprite.SetActive(true);
             playerInRange = true;
