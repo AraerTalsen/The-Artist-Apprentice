@@ -32,7 +32,7 @@ public class UpdateHUD : MonoBehaviour
         Entity[] a = CombatSystem.allyParty;
         int numAllies = MinionBehaviours.numMinions + 1;
 
-        for (int i = 0; i < numAllies; i++)
+        for (int i = 0; i < a.Length; i++)
         {
             if (!a[i].isDead)
             {

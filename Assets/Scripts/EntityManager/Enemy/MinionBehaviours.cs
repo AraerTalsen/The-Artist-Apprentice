@@ -56,7 +56,7 @@ public class MinionBehaviours : MonoBehaviour
         //minions[numMinions] = Instantiate(EnemyLibrary.ChooseEnemy(Random.Range(0, 3))); //Minion brain is created
 
         numMinions++;
-        pb.SetAllyToButtons(numMinions);
+        //pb.SetAllyToButtons(numMinions);
         uh.AddAlly(minions[numMinions - 1]);
 
         //hard set minion attack value
@@ -74,7 +74,7 @@ public class MinionBehaviours : MonoBehaviour
 
         if (index <= numMinions && !CombatSystem.allyParty[index].isDead)
         {
-            pb.PlayerNewTurn(index, e, a);
+            //pb.PlayerNewTurn(index, e, a);
 
             //cs.EnemyDeadCheck();
         }

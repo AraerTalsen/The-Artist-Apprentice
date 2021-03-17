@@ -43,7 +43,8 @@ public class CombatSystem : MonoBehaviour
 
     //State revision
     private Entity[] all;
-    private int currentEntity = 0, state = 0;
+    private int currentEntity = 0;
+    public int state = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,9 @@ public class CombatSystem : MonoBehaviour
             debugSession = true;
         }
         else debugSession = false;
+
+        for (int i = 0; i < enemyParty.Length; i++)
+            enemyParty[i].body = eDisplay[i].transform.GetChild(0).gameObject;
 
         livingEnemies = enemyParty.Length;
         
@@ -98,6 +102,9 @@ public class CombatSystem : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < allyParty.Length; i++)
+            allyParty[i].body = aDisplay[i].transform.GetChild(0).gameObject;
+
         all = new Entity[allyParty.Length + enemyParty.Length];
 
         for(int i = 0; i < allyParty.Length; i++)
@@ -125,17 +132,37 @@ public class CombatSystem : MonoBehaviour
 
     public void StateMachine()
     {
-        if(state == 0)
+        switch (state)
         {
-            ChooseMove();
-        }
-        else
-        {
-            DeadCheck();
-            state = 0;
-            currentEntity = currentEntity == all.Length - 1 ? 0 : currentEntity + 1;
-            StateMachine();
-        }
+            case 0:
+            {
+                if (all[currentEntity].statusEffect[0] != null)
+                    all[currentEntity].statusEffect[0].Effect();
+                else
+                {
+                    state = 1;
+                    StateMachine();
+                }
+                break;
+            }
+            case 1:
+            {
+                ChooseMove();
+                break;
+            }
+            case 2:
+            {
+                break;
+            }
+            case 3:
+            {
+                DeadCheck();
+                state = 0;
+                currentEntity = currentEntity == all.Length - 1 ? 0 : currentEntity + 1;
+                StateMachine();
+                break;
+            }
+        }  
         //e.statusEffect[0].Effect();
         //e.statusEffect[1].Effect();
     }
@@ -151,14 +178,24 @@ public class CombatSystem : MonoBehaviour
         for(int i = 0; i < m.targets.Length; i++)
         {
             targets[i].currentHP += all[currentEntity].HitValue * m.val;
+
+            if (m.sf != null && targets[i].statusEffect[m.sf.activationPeriod] == null)
+            {
+                StatusEffect sf = Instantiate(m.sf);
+                targets[i].statusEffect[m.sf.activationPeriod] = sf;
+                sf.host = targets[i];
+            }  
+
+            StartCoroutine(ColorBlink(m, targets[i]));
             if (all[currentEntity].isAlly)
             {
                 player1.currentPaint -= m.cost;//Change later
-                state = 1;
+                state = 3;//When multiple targets can happen, this has to move
                 StateMachine();
             }
             else
             {
+                enemyAction[currentEntity - enemyParty.Length - 1].sprite = m.moveType;
                 StartCoroutine("SlowTheEnemies");
             }
 
@@ -171,8 +208,17 @@ public class CombatSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         img[currentEntity - enemyParty.Length - 1].GetComponent<enemyCombatAnim>().Retract();
         yield return new WaitForSeconds(1f);
-        state = 1;
+        state = 3;
         StateMachine();
+    }
+
+    private IEnumerator ColorBlink(Moves m, Entity target)
+    {
+        GameObject body = target.body;
+        SpriteRenderer bodyHue = body.GetComponent<SpriteRenderer>();
+        bodyHue.color = m.effectColor;
+        yield return new WaitForSeconds(1);
+        bodyHue.color = Color.white;
     }
 
     private void DeadCheck()

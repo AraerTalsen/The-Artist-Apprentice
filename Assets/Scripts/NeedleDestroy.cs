@@ -86,9 +86,9 @@ public class NeedleDestroy : MonoBehaviour
         Destroy(this.gameObject);
         NeedleMove.needleSpeed = NeedleMove.speedReset;
         SpawnNeedle.spawnedNeedle = false;
-        if (!reseting)
-            pb.SkillCheck(success);
-        else reseting = false;
+        //if (!reseting)
+            //pb.SkillCheck(success);
+        //else reseting = false;
 
         //if (miss)
         //{

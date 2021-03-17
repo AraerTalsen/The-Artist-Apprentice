@@ -44,11 +44,11 @@ public class PlayerMoves : EntityBehaviours
     public void PlayerDecision(Entity[] allies, Enemy[] enemies)
     {
         p = (Player)allies[0];
-        pb.SetPlayer(p);
+        //pb.SetPlayer(p);
         e = enemies;
         a = allies;
 
-        pb.PlayerNewTurn(0, e, a);
+        //pb.PlayerNewTurn(0, e, a);
     }
 
     //Switch move that delegate will use

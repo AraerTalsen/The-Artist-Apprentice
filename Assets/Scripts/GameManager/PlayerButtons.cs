@@ -48,21 +48,21 @@ public class PlayerButtons : MonoBehaviour
 
     private void Awake()
     {
-        pm = FindObjectOfType<PlayerMoves>();
+        /*pm = FindObjectOfType<PlayerMoves>();
         em = FindObjectOfType<EnemyMoves>();
-        mb = FindObjectOfType<MinionBehaviours>();
+        mb = FindObjectOfType<MinionBehaviours>();*/
         cs = FindObjectOfType<CombatSystem>();
 
         //actions.SetValue(pActions, 0);
 
-        whichEntity = new useMove[] { PlayerMove, MinionMove};
+        /*whichEntity = new useMove[] { PlayerMove, MinionMove};
 
         for (int i = 1; i <= 3; i++)
         {
             actions[i] = mActions;
-        }    
+        } */   
     }
-
+    /*
 
 
     /// ACTION BUTTONS ///
@@ -191,7 +191,7 @@ public class PlayerButtons : MonoBehaviour
 
         selectedEntity(select);
 
-    }
+    }*/
 
     public void LoadMoves(Moves[] m, bool isAlly, Enemy[] enemies, Entity[] ally)
     {
@@ -212,8 +212,17 @@ public class PlayerButtons : MonoBehaviour
         else
         {
             int r1 = Random.Range(0, m.Length);
-            int r2 = !currentMoves[r1].isFriendlyTarget ? Random.Range(0, a.Length) : Random.Range(0, e.Length);
-            targets[0] = a[r2];
+            if(!currentMoves[r1].isFriendlyTarget)
+            {
+                int r2 = Random.Range(0, a.Length);
+                targets[0] = a[r2];
+            }
+            else
+            {
+                int r2 = Random.Range(0, e.Length);
+                targets[0] = e[r2];
+            }
+            
             cs.UseMove(targets, currentMoves[r1]);
         }
     }
@@ -238,13 +247,16 @@ public class PlayerButtons : MonoBehaviour
             mod = a.Length;
         }
 
-        for(int i = 0; i < targetedParty.Length; i++)
-        {
-            tB[i + mod].GetComponentInChildren<TextMeshProUGUI>().name = i.ToString();
-            tB[i + mod].gameObject.SetActive(true);
-        }
-
         maxTargets = currentMoves[select].targets.Length;
+        if (maxTargets == 0) ((Run)currentMoves[select]).RunAway();
+        else
+        {
+            for (int i = 0; i < targetedParty.Length; i++)
+            {
+                tB[i + mod].GetComponentInChildren<TextMeshProUGUI>().name = i.ToString();
+                tB[i + mod].gameObject.SetActive(true);
+            }
+        }
     }
 
     public void SelectTargets()
