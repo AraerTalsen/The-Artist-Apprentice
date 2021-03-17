@@ -119,7 +119,7 @@ public class CombatSystem : MonoBehaviour
 
     private void ChooseMove()
     {
-        pb.LoadMoves(enemyParty[0].moveList);
+        //pb.LoadMoves(enemyParty[0].moveList);
         //LoadMoves(e.moves)
             //Open buttons
             //When a move is chosen, open 'select target'
