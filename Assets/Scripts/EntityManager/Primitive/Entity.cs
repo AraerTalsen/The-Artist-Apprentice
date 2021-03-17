@@ -15,8 +15,7 @@ public class Entity : ScriptableObject
 
     public bool targeted = false;
     public bool isDead = false;
+    public bool isAlly = false;
     public StatusEffect[] statusEffect;
-
-    public delegate void Moves();
     public Moves[] moveList;
 }

@@ -20,6 +20,10 @@ MonoBehaviour:
   HitValue: 2
   targeted: 0
   isDead: 0
+  isAlly: 0
+  moveList:
+  - {fileID: 11400000, guid: 9dca445721584214abb35fb64b9093fe, type: 2}
+  - {fileID: 11400000, guid: d614e55beb423f147a3163c0b1a636d8, type: 2}
   enemyType: {fileID: 1642797598595214994, guid: a5f37a3feae3b4f8a8749139f9125148,
     type: 3}
   enemySprite: {fileID: 21300000, guid: 4c478ae9516b0fe4c895962852bbdac4, type: 3}

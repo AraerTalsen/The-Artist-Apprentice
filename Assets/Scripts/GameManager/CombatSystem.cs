@@ -41,6 +41,10 @@ public class CombatSystem : MonoBehaviour
 
     public GameObject[] img;
 
+    //State revision
+    private Entity[] all;
+    private int currentEntity = 0, state = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +55,7 @@ public class CombatSystem : MonoBehaviour
             for (int i = 0; i < dE.Length; i++)
             {
                 enemyParty[i] = Instantiate(dE[i]);
-                enemyParty[i].currentHP = 1;
+                //enemyParty[i].currentHP = 1;
             }
             debugSession = true;
         }
@@ -81,6 +85,7 @@ public class CombatSystem : MonoBehaviour
             for (int i = 1; i < allyParty.Length; i++)
             {
                 allyParty[i] = Instantiate(dA[i - 1]);
+                allyParty[i].isAlly = true;
             }                  
         }
         else
@@ -89,14 +94,27 @@ public class CombatSystem : MonoBehaviour
             for (int i = 1; i <= s.Count; i++)
             {
                 allyParty[i] = Instantiate((Entity)Resources.Load("Enemies/" + s[i - 1], typeof(Object)));
+                allyParty[i].isAlly = true;
             }
         }
-        
+
+        all = new Entity[allyParty.Length + enemyParty.Length];
+
+        for(int i = 0; i < allyParty.Length; i++)
+        {
+            all[i] = allyParty[i];
+        }
+
+        for (int i = allyParty.Length; i < all.Length; i++)
+        {
+            all[i] = enemyParty[i - allyParty.Length];
+        }
 
         uh.LoadHUDs();
         uh.UpdateEveryHUD();
 
-        PlayerTurn();
+        //PlayerTurn();
+        StateMachine();
     }
 
 
@@ -107,33 +125,62 @@ public class CombatSystem : MonoBehaviour
 
     public void StateMachine()
     {
-        /*Entity turn*/
+        if(state == 0)
+        {
+            ChooseMove();
+        }
+        else
+        {
+            DeadCheck();
+            state = 0;
+            currentEntity = currentEntity == all.Length - 1 ? 0 : currentEntity + 1;
+            StateMachine();
+        }
         //e.statusEffect[0].Effect();
-        //ChooseMove()
         //e.statusEffect[1].Effect();
-        //uh.UpdateEveryHUD();
-
-
-        /*Check if combat is over*/
     }
 
     private void ChooseMove()
     {
-        //pb.LoadMoves(enemyParty[0].moveList);
-        //LoadMoves(e.moves)
-            //Open buttons
-            //When a move is chosen, open 'select target'
+        if (!all[currentEntity].isDead)
+            pb.LoadMoves(all[currentEntity].moveList, all[currentEntity].isAlly, enemyParty, allyParty);
     }
 
-    private void SelectTarget()
+    public void UseMove(Entity[] targets, Moves m)
     {
-        //Move gives a key for targets
-        //if key == friends[x] -> friend buttons until x
-        //else if key == foes[x] -> foe buttons until x
-        //else if key == all[x] -> friend and foe buttons until x
-        //else -> load predetermined targets
+        for(int i = 0; i < m.targets.Length; i++)
+        {
+            targets[i].currentHP += all[currentEntity].HitValue * m.val;
+            if (all[currentEntity].isAlly)
+            {
+                player1.currentPaint -= m.cost;//Change later
+                state = 1;
+                StateMachine();
+            }
+            else
+            {
+                StartCoroutine("SlowTheEnemies");
+            }
 
-        //move.Load(targets)
+        }
+    }
+
+    private IEnumerator SlowTheEnemies()
+    {
+        img[currentEntity - enemyParty.Length - 1].GetComponent<enemyCombatAnim>().AnimTime();
+        yield return new WaitForSeconds(1f);
+        img[currentEntity - enemyParty.Length - 1].GetComponent<enemyCombatAnim>().Retract();
+        yield return new WaitForSeconds(1f);
+        state = 1;
+        StateMachine();
+    }
+
+    private void DeadCheck()
+    {
+        PlayerDeadCheck();
+        EnemyDeadCheck();
+
+        uh.UpdateEveryHUD();
     }
 
     private void PlayerTurn()
@@ -143,15 +190,29 @@ public class CombatSystem : MonoBehaviour
 
     public void EnemyDeadCheck()
     {
+        int dead = 0;
         for (int i = 0; i < enemyParty.Length; i++)
             if (enemyParty[i].currentHP <= 0 && !enemyParty[i].isDead)
             {
                 enemyParty[i].isDead = true;
                 eDisplay[i].SetActive(false);
                 livingEnemies--;
+                dead++;
             }
+        /*Enemy[] temp = new Enemy[enemyParty.Length - dead];
+        int num = 0;
 
-        uh.UpdateEveryHUD();
+        for(int i = 0; i < enemyParty.Length; i++)
+        {
+            if (enemyParty[i].currentHP > 0)
+            {
+                temp[num] = enemyParty[i];
+                num++;
+            }   
+        }
+        enemyParty = temp;*/
+
+        //uh.UpdateEveryHUD();
 
         if (livingEnemies <= 0)
         {
@@ -181,6 +242,7 @@ public class CombatSystem : MonoBehaviour
 
     private void PlayerDeadCheck()
     {
+        int dead = 0;
         for (int i = 0; i < allyParty.Length; i++)
         {
             if (allyParty[i] != null && allyParty[i].currentHP <= 0 && !allyParty[i].isDead)
@@ -194,11 +256,25 @@ public class CombatSystem : MonoBehaviour
                 {
                     allyParty[i].isDead = true;
                     aDisplay[i].SetActive(false);
+                    dead++;
                 }
             }
         }
 
-        uh.UpdateEveryHUD();
+        Entity[] temp = new Entity[allyParty.Length - dead];
+        int num = 0;
+
+        for (int i = 0; i < allyParty.Length; i++)
+        {
+            if (allyParty[i].currentHP > 0)
+            {
+                temp[num] = allyParty[i];
+                num++;
+            }
+        }
+        allyParty = temp;
+
+        //uh.UpdateEveryHUD();
     }
 
     //this is where we would put functionality for if a battle is won or lost (win animations/lose states etc.)

@@ -40,6 +40,10 @@ public class PlayerButtons : MonoBehaviour
 
     //Buttons for moves
     public Button[] b;
+    public Button[] tB;
+    private Moves[] currentMoves;
+    private int targetCount = 0, maxTargets = 0;
+    private Entity[] targets = new Entity[7];
     
 
     private void Awake()
@@ -188,12 +192,76 @@ public class PlayerButtons : MonoBehaviour
         selectedEntity(select);
 
     }
-    public delegate void Moves();
-    public void LoadMoves(Moves[] m)
-    {
-        for (int i = 0; i < m.Length; i++)
-        {
 
+    public void LoadMoves(Moves[] m, bool isAlly, Enemy[] enemies, Entity[] ally)
+    {
+        e = enemies;
+        a = ally;
+        currentMoves = m;
+
+        if(isAlly)
+        {
+            for (int i = 0; i < m.Length; i++)
+            {
+                Text t = b[i].GetComponentInChildren<Text>();
+                t.text = m[i].name;
+                t.name = i.ToString();
+                b[i].gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            int r1 = Random.Range(0, m.Length);
+            int r2 = !currentMoves[r1].isFriendlyTarget ? Random.Range(0, a.Length) : Random.Range(0, e.Length);
+            targets[0] = a[r2];
+            cs.UseMove(targets, currentMoves[r1]);
+        }
+    }
+
+    public void SelectMove()
+    {
+        int.TryParse(EventSystem.current.currentSelectedGameObject.transform.GetChild(0).name, out select);
+
+        for (int i = 0; i < currentMoves.Length; i++)
+            b[i].gameObject.SetActive(false);
+
+        int mod;
+
+        if (currentMoves[select].isFriendlyTarget)
+        {
+            targetedParty = a;
+            mod = 0;
+        }
+        else
+        {
+            targetedParty = e;
+            mod = a.Length;
+        }
+
+        for(int i = 0; i < targetedParty.Length; i++)
+        {
+            tB[i + mod].GetComponentInChildren<TextMeshProUGUI>().name = i.ToString();
+            tB[i + mod].gameObject.SetActive(true);
+        }
+
+        maxTargets = currentMoves[select].targets.Length;
+    }
+
+    public void SelectTargets()
+    {
+        int.TryParse(EventSystem.current.currentSelectedGameObject.transform.GetChild(0).name, out int t);
+        targets[targetCount] = targetedParty[t];
+        targetCount++;
+        tB[select].gameObject.SetActive(false);
+
+        if (targetCount == maxTargets || targetCount == targetedParty.Length)
+        {
+            targetCount = 0;
+
+            for (int i = 0; i < tB.Length; i++)
+                tB[i].gameObject.SetActive(false);
+
+            cs.UseMove(targets, currentMoves[select]);
         }
     }
 }
