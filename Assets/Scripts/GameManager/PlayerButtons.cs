@@ -244,7 +244,7 @@ public class PlayerButtons : MonoBehaviour
         else
         {
             targetedParty = e;
-            mod = a.Length;
+            mod = 4;
         }
 
         maxTargets = currentMoves[select].targets.Length;

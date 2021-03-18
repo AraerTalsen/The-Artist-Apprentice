@@ -7,13 +7,15 @@ public class Immobilizers : StatusEffect
 {
     public override void Effect()
     {
+        CombatSystem cs = FindObjectOfType<CombatSystem>();
+        cs.state = 3;
+        cs.StateMachine();
         duration--;
-        if (duration == 0) host.statusEffect[activationPeriod] = null;
-        else
+
+        if (duration == 0)
         {
-            CombatSystem cs = FindObjectOfType<CombatSystem>();
-            cs.state = 3;
-            cs.StateMachine();
-        }
+            host.statusEffect[activationPeriod] = null;
+            Destroy(this);
+        }  
     }
 }

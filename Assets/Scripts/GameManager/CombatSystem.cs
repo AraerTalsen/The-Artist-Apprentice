@@ -16,8 +16,8 @@ public class CombatSystem : MonoBehaviour
     //Combative parties
     public Player player1; 
 
-    public static Enemy[] enemyParty; 
-    public static Entity[] allyParty = new Entity[4];
+    public static Enemy[] enemyParty;
+    public static Entity[] allyParty;
 
     //Entity placements
     public Transform playerSpawn; 
@@ -51,9 +51,9 @@ public class CombatSystem : MonoBehaviour
     {
         if (enemyParty == null || enemyParty.Length == 0)
         {
-            enemyParty = new Enemy[dE.Length];
+            enemyParty = new Enemy[2];//dE.Length];
 
-            for (int i = 0; i < dE.Length; i++)
+            for (int i = 0; i < enemyParty.Length; i++)
             {
                 enemyParty[i] = Instantiate(dE[i]);
                 //enemyParty[i].currentHP = 1;
@@ -79,11 +79,10 @@ public class CombatSystem : MonoBehaviour
     {
         List<string> s = ListCreator.combatMinionsList;
         
-        allyParty[0] = player1;
-        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
-
         if (s == null || debugSession)
         {
+            allyParty = new Entity[4];
+            allyParty[0] = player1;
             MinionBehaviours.numMinions = 3;
             print("Debug party active");
             for (int i = 1; i < allyParty.Length; i++)
@@ -95,15 +94,20 @@ public class CombatSystem : MonoBehaviour
         else
         {
             MinionBehaviours.numMinions = s.Count;
+            allyParty = new Entity[s.Count + 1];
+            allyParty[0] = player1;
             for (int i = 1; i <= s.Count; i++)
             {
                 allyParty[i] = Instantiate((Entity)Resources.Load("Enemies/" + s[i - 1], typeof(Object)));
                 allyParty[i].isAlly = true;
             }
         }
+        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
 
         for (int i = 0; i < allyParty.Length; i++)
+        {
             allyParty[i].body = aDisplay[i].transform.GetChild(0).gameObject;
+        }  
 
         all = new Entity[allyParty.Length + enemyParty.Length];
 
@@ -163,8 +167,6 @@ public class CombatSystem : MonoBehaviour
                 break;
             }
         }  
-        //e.statusEffect[0].Effect();
-        //e.statusEffect[1].Effect();
     }
 
     private void ChooseMove()
@@ -195,7 +197,7 @@ public class CombatSystem : MonoBehaviour
             }
             else
             {
-                enemyAction[currentEntity - enemyParty.Length - 1].sprite = m.moveType;
+                enemyAction[currentEntity - allyParty.Length].sprite = m.moveType;
                 StartCoroutine("SlowTheEnemies");
             }
 
@@ -204,9 +206,9 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator SlowTheEnemies()
     {
-        img[currentEntity - enemyParty.Length - 1].GetComponent<enemyCombatAnim>().AnimTime();
+        img[currentEntity - allyParty.Length].GetComponent<enemyCombatAnim>().AnimTime();
         yield return new WaitForSeconds(1f);
-        img[currentEntity - enemyParty.Length - 1].GetComponent<enemyCombatAnim>().Retract();
+        img[currentEntity - allyParty.Length].GetComponent<enemyCombatAnim>().Retract();
         yield return new WaitForSeconds(1f);
         state = 3;
         StateMachine();

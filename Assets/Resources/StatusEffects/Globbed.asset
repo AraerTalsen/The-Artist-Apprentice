@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Globbed
   m_EditorClassIdentifier: 
   activationPeriod: 0
-  duration: 0
+  duration: 1
   val: 0
   host: {fileID: 0}
