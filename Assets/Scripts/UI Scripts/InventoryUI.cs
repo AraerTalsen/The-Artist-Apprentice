@@ -96,7 +96,6 @@ public class InventoryUI : MonoBehaviour
 
     IEnumerator OpenInventory()
     {
-
         anim.Play("Inventory - Painters Case");
         PlayerMovement.pauseGame = true;
         inventoryOpen = true;
