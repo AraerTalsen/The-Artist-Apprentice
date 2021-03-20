@@ -151,7 +151,7 @@ public class CombatSystem : MonoBehaviour
             }
             case 1:
             {
-                ChooseMove();
+                    ChooseMove();
                 break;
             }
             case 2:
@@ -160,7 +160,7 @@ public class CombatSystem : MonoBehaviour
             }
             case 3:
             {
-                DeadCheck();
+                    DeadCheck();
                 state = 0;
                 currentEntity = currentEntity == all.Length - 1 ? 0 : currentEntity + 1;
                 StateMachine();
@@ -177,7 +177,7 @@ public class CombatSystem : MonoBehaviour
 
     public void UseMove(Entity[] targets, Moves m)
     {
-        for(int i = 0; i < m.targets.Length; i++)
+        for (int i = 0; i < m.targets.Length; i++)
         {
             targets[i].currentHP += all[currentEntity].HitValue * m.val;
 

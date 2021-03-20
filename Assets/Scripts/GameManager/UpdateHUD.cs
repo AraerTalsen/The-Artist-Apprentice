@@ -6,6 +6,7 @@ using TMPro;
 
 public class UpdateHUD : MonoBehaviour
 {
+    public GameObject[] eNodes;
     public Image[] eDisplay; //The panel that enemy info is listed on. [Disable to make everything disabled.]
     public Image[] aDisplay; //The panel that ally info is listed on. [Disable to make everything disabled.]
 
@@ -81,7 +82,7 @@ public class UpdateHUD : MonoBehaviour
         Enemy[] e = CombatSystem.enemyParty;
         for (int i = 0; i < e.Length; i++)
         {
-            eDisplay[i].gameObject.SetActive(true);
+            eNodes[i].gameObject.SetActive(true);
 
             eDisplay[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Name: " + e[i].eName;
             eDisplay[i].transform.GetChild(1).GetComponent<Slider>().maxValue = e[i].maxHP;
