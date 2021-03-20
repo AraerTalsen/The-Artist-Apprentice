@@ -144,18 +144,21 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "enemy1Sketch")
         {
             addSeanMinion();
+            QuestRewardManagerScript.minion1Destroyed = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "enemy2Sketch")
         {
             addMikeMinion();
+            QuestRewardManagerScript.minion2Destroyed = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "enemy3Sketch")
         {
             addDanMinion();
+            QuestRewardManagerScript.minion3Destroyed = true;
             Destroy(other.gameObject);
         }
 

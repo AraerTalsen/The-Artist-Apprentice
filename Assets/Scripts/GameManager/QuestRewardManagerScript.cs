@@ -10,18 +10,33 @@ public class QuestRewardManagerScript : MonoBehaviour
 
     public static bool helpfulNPCReward = false;
 
+    public static bool minion1Destroyed, minion2Destroyed, minion3Destroyed = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerMovement.barrelQuestItemGiven == true)
+        if (minion1Destroyed == false)
         {
+            if (PlayerMovement.barrelQuestItemGiven == true)
+            {
                 sketchQuestRewardOne.SetActive(true);
+            }
+        } else
+        {
+            return;
         }
 
-        if(helpfulNPCReward == true)
+        if (minion2Destroyed == false)
         {
-            sketchQuestRewardTwo.SetActive(true);
+            if (helpfulNPCReward == true)
+            {
+                sketchQuestRewardTwo.SetActive(true);
+            }
+        } else
+        {
+            return;
         }
+ 
     }
 }
