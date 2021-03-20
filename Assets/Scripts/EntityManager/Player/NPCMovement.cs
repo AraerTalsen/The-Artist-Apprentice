@@ -15,8 +15,11 @@ public class NPCMovement : MonoBehaviour
     public float moveY;
 
     public GameObject alertSprite;
+    public GameObject playerPosition;
 
     public bool npcHasQuest = true;
+
+    public SpriteRenderer NPCRenderer;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +36,14 @@ public class NPCMovement : MonoBehaviour
         if (playerInRange)
         {
             canMove = false;
+            if(playerPosition.transform.position.x > this.transform.position.x)
+            {
+                NPCRenderer.flipX = false;
+            }
+            else
+            {
+                NPCRenderer.flipX = true;
+            }
         }
 
         if (!playerInRange && canPatrol)

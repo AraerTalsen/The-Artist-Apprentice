@@ -9765,7 +9765,9 @@ MonoBehaviour:
   moveX: 0
   moveY: 0
   alertSprite: {fileID: 1011154540}
+  playerPosition: {fileID: 382172034}
   npcHasQuest: 0
+  NPCRenderer: {fileID: 1117711800}
 --- !u!61 &1117711798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24268,7 +24270,9 @@ MonoBehaviour:
   moveX: 0
   moveY: 0
   alertSprite: {fileID: 1850075522}
+  playerPosition: {fileID: 382172034}
   npcHasQuest: 0
+  NPCRenderer: {fileID: 1491295715}
 --- !u!58 &1491295720
 CircleCollider2D:
   m_ObjectHideFlags: 0
