@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -95,6 +96,7 @@ public class InventoryUI : MonoBehaviour
 
     IEnumerator OpenInventory()
     {
+
         anim.Play("Inventory - Painters Case");
         PlayerMovement.pauseGame = true;
         inventoryOpen = true;
