@@ -28,6 +28,8 @@ public class EnemyOverworldMovement : MonoBehaviour
 
     public Animator transition;
 
+    public SpriteRenderer enemySpriteRenderer;
+
     private void Start()
     {
         for(int i = 0; i < party.Length; i++)
@@ -54,6 +56,15 @@ public class EnemyOverworldMovement : MonoBehaviour
             float step = speed * Time.deltaTime;
             target = new Vector2(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, target, step);
+
+            if(PlayerPosition.transform.position.x > this.transform.position.x)
+            {
+                enemySpriteRenderer.flipX = true;
+            }
+            else
+            {
+                enemySpriteRenderer.flipX = false;
+            }
         }
 
         if (!playerInRange && canPatrol)

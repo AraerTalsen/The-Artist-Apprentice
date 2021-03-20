@@ -16,15 +16,7 @@ public class QuestRewardManagerScript : MonoBehaviour
     {
         if (PlayerMovement.barrelQuestItemGiven == true)
         {
-            if(sketchQuestRewardOne != null)
-            {
                 sketchQuestRewardOne.SetActive(true);
-            } else
-            {
-                sketchQuestRewardOne = null;
-                sketchQuestRewardOne.SetActive(false);
-            }
-            
         }
 
         if(helpfulNPCReward == true)
