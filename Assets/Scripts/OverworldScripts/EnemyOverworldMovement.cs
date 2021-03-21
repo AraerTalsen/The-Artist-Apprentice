@@ -44,28 +44,36 @@ public class EnemyOverworldMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange)
+        if(DialogueManager.currentlyTalking == false)
         {
-            canMove = false;
-
-            alertSprite.SetActive(true);
-            //StartCoroutine(Alert());
-
-            anim.SetBool("isMoving", true);
-
-            float step = speed * Time.deltaTime;
-            target = new Vector2(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, target, step);
-
-            if(PlayerPosition.transform.position.x > this.transform.position.x)
+            if (playerInRange)
             {
-                enemySpriteRenderer.flipX = true;
-            }
-            else
-            {
-                enemySpriteRenderer.flipX = false;
+                canMove = false;
+
+                alertSprite.SetActive(true);
+                //StartCoroutine(Alert());
+
+                anim.SetBool("isMoving", true);
+
+                float step = speed * Time.deltaTime;
+                target = new Vector2(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y);
+                transform.position = Vector2.MoveTowards(transform.position, target, step);
+
+                if (PlayerPosition.transform.position.x > this.transform.position.x)
+                {
+                    enemySpriteRenderer.flipX = true;
+                }
+                else
+                {
+                    enemySpriteRenderer.flipX = false;
+                }
             }
         }
+        else
+        {
+            //no movement for the enemies while player is either reading signs or talking to npcs
+        }
+
 
         if (!playerInRange && canPatrol)
         {

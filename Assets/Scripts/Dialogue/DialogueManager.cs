@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     //private int optionsAmount;
     //public Text questionText;
 
+    public static bool currentlyTalking = false;
 
     //public GameObject NextSceneButton;
 
@@ -68,8 +69,9 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(true);
         NextButton.SetActive(true);
         dialogueInfo.Clear();
+        currentlyTalking = true;
 
-        if(dialogueBox.activeInHierarchy == true)
+        if (dialogueBox.activeInHierarchy == true)
         {
             PauseMenu.menuOpen = true;
             InventoryUI.inventoryOpen = true;
@@ -192,6 +194,7 @@ public class DialogueManager : MonoBehaviour
             PauseMenu.menuOpen = false;
             InventoryUI.inventoryOpen = false;
         }
+        currentlyTalking = false;
         //OptionsLogic();
     }
 
