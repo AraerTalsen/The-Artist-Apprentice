@@ -9027,7 +9027,7 @@ GameObject:
   - component: {fileID: 1052729137}
   m_Layer: 0
   m_Name: enemy3Sketch
-  m_TagString: enemy1Sketch
+  m_TagString: enemy3Sketch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26125,7 +26125,7 @@ GameObject:
   - component: {fileID: 1701612278}
   m_Layer: 0
   m_Name: enemy2Sketch
-  m_TagString: enemy1Sketch
+  m_TagString: enemy2Sketch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87786,7 +87786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721531557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.89, y: 13.27, z: -2.1191406}
+  m_LocalPosition: {x: 11.89, y: 13.16, z: -2.1191406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

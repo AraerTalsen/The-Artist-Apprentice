@@ -22,9 +22,6 @@ public class QuestRewardManagerScript : MonoBehaviour
             {
                 sketchQuestRewardOne.SetActive(true);
             }
-        } else
-        {
-            return;
         }
 
         if (minion2Destroyed == false)
@@ -33,9 +30,6 @@ public class QuestRewardManagerScript : MonoBehaviour
             {
                 sketchQuestRewardTwo.SetActive(true);
             }
-        } else
-        {
-            return;
         }
  
     }
