@@ -46,6 +46,8 @@ public class PauseMenu : MonoBehaviour
         if (menuOpen)
         {
             menuOpen = false;
+            Time.timeScale = 1;
+            PlayerMovement.pauseGame = false;
         }
         else if (!menuOpen)
         {
