@@ -143,21 +143,27 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "enemy1Sketch")
         {
+            Debug.Log("BeforeSeanCollision");
             addSeanMinion();
+            Debug.Log("AfterSeanCollision");
             QuestRewardManagerScript.minion1Destroyed = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "enemy2Sketch")
         {
+            Debug.Log("BeforeMikeCollision");
             addMikeMinion();
+            Debug.Log("AfterMikeCollision");
             QuestRewardManagerScript.minion2Destroyed = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "enemy3Sketch")
         {
+            Debug.Log("BeforeDanCollision");
             addDanMinion();
+            Debug.Log("AfterDanCollision");
             QuestRewardManagerScript.minion3Destroyed = true;
             Destroy(other.gameObject);
         }
@@ -208,16 +214,25 @@ public class PlayerMovement : MonoBehaviour
         ListCreator.numberOfItemsCollected++;
         ListCreator.runInventoryUpdate = true;
         Debug.Log(UpdateMinionInventoryFunction == null);
+        Debug.Log("BeforeDanMinion");
         UpdateMinionInventoryFunction.InsertDanMinion();
+        Debug.Log("AfterDanMinion");
     }
 
     public void addMikeMinion()
     {
+        Debug.Log(1);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Summon");
+        Debug.Log(2);
         ListCreator.numberOfItemsCollected++;
+        Debug.Log(3);
         ListCreator.runInventoryUpdate = true;
+        Debug.Log(4);
         Debug.Log(UpdateMinionInventoryFunction == null);
+        Debug.Log(UpdateMinionInventoryFunction);
+        Debug.Log("BeforeMikeMinion");
         UpdateMinionInventoryFunction.InsertMikeMinion();
+        Debug.Log("AfterMikeMinion");
     }
 
     public void addSeanMinion()
@@ -226,6 +241,8 @@ public class PlayerMovement : MonoBehaviour
         ListCreator.numberOfItemsCollected++;
         ListCreator.runInventoryUpdate = true;
         Debug.Log(UpdateMinionInventoryFunction == null);
+        Debug.Log("BeforeSeanMinion");
         UpdateMinionInventoryFunction.InsertSeanMinion();
+        Debug.Log("AfterSeanMinion");
     }
 }
