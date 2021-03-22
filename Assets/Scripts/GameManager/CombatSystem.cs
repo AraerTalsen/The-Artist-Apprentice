@@ -51,7 +51,7 @@ public class CombatSystem : MonoBehaviour
     {
         if (enemyParty == null || enemyParty.Length == 0)
         {
-            enemyParty = new Enemy[2];//dE.Length];
+            enemyParty = new Enemy[dE.Length];
 
             for (int i = 0; i < enemyParty.Length; i++)
             {
@@ -93,6 +93,7 @@ public class CombatSystem : MonoBehaviour
         }
         else
         {
+            print(s.Count);
             MinionBehaviours.numMinions = s.Count;
             allyParty = new Entity[s.Count + 1];
             allyParty[0] = player1;
@@ -151,7 +152,7 @@ public class CombatSystem : MonoBehaviour
             }
             case 1:
             {
-                    ChooseMove();
+                ChooseMove();
                 break;
             }
             case 2:
@@ -160,7 +161,11 @@ public class CombatSystem : MonoBehaviour
             }
             case 3:
             {
-                    DeadCheck();
+                DeadCheck();
+                break;
+            }
+            case 4:
+            {
                 state = 0;
                 currentEntity = currentEntity == all.Length - 1 ? 0 : currentEntity + 1;
                 StateMachine();
@@ -173,6 +178,11 @@ public class CombatSystem : MonoBehaviour
     {
         if (!all[currentEntity].isDead)
             pb.LoadMoves(all[currentEntity].moveList, all[currentEntity].isAlly, enemyParty, allyParty);
+        else
+        {
+            state = 4;
+            StateMachine();
+        }
     }
 
     public void UseMove(Entity[] targets, Moves m)
@@ -225,18 +235,56 @@ public class CombatSystem : MonoBehaviour
 
     private void DeadCheck()
     {
-        PlayerDeadCheck();
-        EnemyDeadCheck();
+        bool ended = false;
+        ended = PlayerDeadCheck(ended);
+        if(!ended) ended = EnemyDeadCheck(ended);
 
         uh.UpdateEveryHUD();
+
+        if (!ended)
+        {
+            state = 4;
+            StateMachine();
+        }
     }
 
-    private void PlayerTurn()
+    private bool PlayerDeadCheck(bool ended)
     {
-        pm.PlayerDecision(allyParty, enemyParty);
+        int dead = 0;
+        for (int i = 0; i < allyParty.Length; i++)
+        {
+            if (allyParty[i] != null && allyParty[i].currentHP <= 0 && !allyParty[i].isDead)
+            {
+                if (i == 0)
+                {
+                    EndCombat(false);
+                    return true;
+                }
+                else
+                {
+                    allyParty[i].isDead = true;
+                    aDisplay[i].SetActive(false);
+                    dead++;
+                }
+            }
+        }
+
+        Entity[] temp = new Entity[allyParty.Length - dead];
+        int num = 0;
+
+        for (int i = 0; i < allyParty.Length; i++)
+        {
+            if (allyParty[i].currentHP > 0)
+            {
+                temp[num] = allyParty[i];
+                num++;
+            }
+        }
+        allyParty = temp;
+        return false;
     }
 
-    public void EnemyDeadCheck()
+    public bool EnemyDeadCheck(bool ended)
     {
         int dead = 0;
         for (int i = 0; i < enemyParty.Length; i++)
@@ -265,65 +313,12 @@ public class CombatSystem : MonoBehaviour
         if (livingEnemies <= 0)
         {
             EndCombat(true);
+            return true;
         }
+        else return false;
     }
 
-    //this could later be used to decide what attacks the enemy is doing
-    public IEnumerator EnemyTurn()
-    {
-        for(int i = 0; i < enemyParty.Length; i++)
-        {
-            if(!enemyParty[i].isDead)
-            {
-                img[i].GetComponent<enemyCombatAnim>().AnimTime();
-                yield return new WaitForSeconds(1f);
-                //Enemy move is decided if enemy is alive
-                enemyAction[i].sprite = ImageAssign(em.ChooseAction(enemyParty[i]));
-                PlayerDeadCheck();
-                img[i].GetComponent<enemyCombatAnim>().Retract();
-                yield return new WaitForSeconds(1f);
-            }
-        }
-
-        Invoke("PlayerTurn", 1);
-    }
-
-    private void PlayerDeadCheck()
-    {
-        int dead = 0;
-        for (int i = 0; i < allyParty.Length; i++)
-        {
-            if (allyParty[i] != null && allyParty[i].currentHP <= 0 && !allyParty[i].isDead)
-            {
-                if (i == 0)
-                {
-                    print("p");
-                    EndCombat(false);
-                }
-                else
-                {
-                    allyParty[i].isDead = true;
-                    aDisplay[i].SetActive(false);
-                    dead++;
-                }
-            }
-        }
-
-        Entity[] temp = new Entity[allyParty.Length - dead];
-        int num = 0;
-
-        for (int i = 0; i < allyParty.Length; i++)
-        {
-            if (allyParty[i].currentHP > 0)
-            {
-                temp[num] = allyParty[i];
-                num++;
-            }
-        }
-        allyParty = temp;
-
-        //uh.UpdateEveryHUD();
-    }
+    
 
     //this is where we would put functionality for if a battle is won or lost (win animations/lose states etc.)
     private void EndCombat(bool won)
@@ -342,7 +337,6 @@ public class CombatSystem : MonoBehaviour
 
             if(!debugSession)
             {
-                print(1);
                 ActiveOverworldEntity.entityInDimension[1][0][id] = false;
                 ActiveOverworldEntity.entityCount[1]--;
             }
@@ -392,4 +386,29 @@ public class CombatSystem : MonoBehaviour
             
         }
     }
+
+    /*private void PlayerTurn()
+    {
+        pm.PlayerDecision(allyParty, enemyParty);
+    }*/
+
+    //this could later be used to decide what attacks the enemy is doing
+    /*public IEnumerator EnemyTurn()
+    {
+        for (int i = 0; i < enemyParty.Length; i++)
+        {
+            if (!enemyParty[i].isDead)
+            {
+                img[i].GetComponent<enemyCombatAnim>().AnimTime();
+                yield return new WaitForSeconds(1f);
+                //Enemy move is decided if enemy is alive
+                enemyAction[i].sprite = ImageAssign(em.ChooseAction(enemyParty[i]));
+                PlayerDeadCheck();
+                img[i].GetComponent<enemyCombatAnim>().Retract();
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
+        Invoke("PlayerTurn", 1);
+    }*/
 }

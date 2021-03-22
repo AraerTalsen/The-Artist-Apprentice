@@ -63,7 +63,7 @@ public class PlayerMoves : EntityBehaviours
 
         selectedMove(target, user); //This is the delegate being called
 
-        cs.EnemyDeadCheck();
+        //cs.EnemyDeadCheck();
 
         mb.MinionTurn(1, e, a);
     }

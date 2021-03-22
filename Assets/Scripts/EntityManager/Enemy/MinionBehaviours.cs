@@ -91,5 +91,8 @@ public class MinionBehaviours : MonoBehaviour
     }
 
     //Invoke can only be called on a method in the same class, but Enemy Turn is in a different class.
-    public void EnemyTurn() { cs.EnemyTurn(); } 
+    public void EnemyTurn()
+    {
+        //cs.EnemyTurn();
+    } 
 }
