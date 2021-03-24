@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
     public static bool firstTime = true;
     private static bool playerExists = false;
 
-    public Sprite minionSprite;
-
     public DialogueManager DM;
 
     public static bool pauseGame = false;
