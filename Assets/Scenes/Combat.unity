@@ -216,8 +216,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1994072}
   - component: {fileID: 1994071}
-  - component: {fileID: 1994070}
   - component: {fileID: 1994073}
+  - component: {fileID: 1994070}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d388619e4ae1d474c9492cde66b803f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 370873457}
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 106917633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca10673fc3c0440a8a4a061c43b52fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 1888216484}
@@ -1779,7 +1779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eda8411e12c194dbb6bae820fcf76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numMinions: 0
 --- !u!4 &224765524
 Transform:
   m_ObjectHideFlags: 0
@@ -1840,6 +1839,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9568db36e87a2ed448bf0105afedd704, type: 3}
   - {fileID: 21300000, guid: a4f581bde63f7974d90697636ccf9ad7, type: 3}
   img:
+  - {fileID: 1928398163}
+  - {fileID: 106917633}
+  - {fileID: 1034755245}
+  - {fileID: 1382840265}
   - {fileID: 953108871}
   - {fileID: 2108071518}
   - {fileID: 1994069}
@@ -1878,6 +1881,10 @@ MonoBehaviour:
   - {x: -3, y: -4.35}
   minionBody: {fileID: 398724924085973504, guid: a7ddde629e4834209b9f93c93385acf4,
     type: 3}
+  minionBodies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   minions:
   - {fileID: 0}
   - {fileID: 0}
@@ -1886,6 +1893,9 @@ MonoBehaviour:
   - {fileID: 106917633}
   - {fileID: 1034755245}
   - {fileID: 1382840265}
+  pb: {fileID: 0}
+  cs: {fileID: 0}
+  uh: {fileID: 0}
 --- !u!114 &224765528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,26 +1908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af266a666c48284d8e356b3e39f8f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interacts:
-  - {fileID: 944982294}
-  enemySelect:
-  - {fileID: 2037408007}
-  - {fileID: 220404206}
-  - {fileID: 954894573}
-  allySelect:
-  - {fileID: 227989838}
-  - {fileID: 575197830}
-  - {fileID: 982828321}
-  - {fileID: 1843009883}
-  sb: {fileID: 1349214675}
-  pActions:
-  - {fileID: 509178564}
-  - {fileID: 198434084}
-  - {fileID: 0}
-  - {fileID: 0}
-  mActions:
-  - {fileID: 509178564}
-  - {fileID: 198434084}
   b:
   - {fileID: 1272513420}
   - {fileID: 2119564250}
@@ -5853,6 +5843,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728382257}
   m_CullTransparentMesh: 0
+--- !u!1 &735289825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735289826}
+  m_Layer: 0
+  m_Name: RetractPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &735289826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735289825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1046169366}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747700664
 GameObject:
   m_ObjectHideFlags: 0
@@ -7149,12 +7169,6 @@ Transform:
   m_Father: {fileID: 720108796}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &944982294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2749106436822731305, guid: 16f38af1019e04b309c923a92c6c46b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 373299104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &953108871
 GameObject:
   m_ObjectHideFlags: 0
@@ -7165,8 +7179,8 @@ GameObject:
   m_Component:
   - component: {fileID: 953108874}
   - component: {fileID: 953108873}
-  - component: {fileID: 953108872}
   - component: {fileID: 953108875}
+  - component: {fileID: 953108872}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -7183,7 +7197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 953108871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d388619e4ae1d474c9492cde66b803f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 489579833}
@@ -8051,7 +8065,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1034755245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca10673fc3c0440a8a4a061c43b52fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 1004472142}
@@ -8160,6 +8174,8 @@ Transform:
   m_Children:
   - {fileID: 1928398164}
   - {fileID: 1501693833}
+  - {fileID: 2055158213}
+  - {fileID: 735289826}
   m_Father: {fileID: 720108796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15783,7 +15799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382840265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca10673fc3c0440a8a4a061c43b52fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 1431029145}
@@ -18946,6 +18962,7 @@ GameObject:
   - component: {fileID: 1928398165}
   - component: {fileID: 1928398166}
   - component: {fileID: 1928398167}
+  - component: {fileID: 1928398168}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -19052,6 +19069,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScirptable: {fileID: 11400000, guid: 55754be53267745ac8f3dcc84747d04a, type: 2}
   currentHP: 0
+--- !u!114 &1928398168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928398163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movePoint: {fileID: 2055158213}
+  retractPoint: {fileID: 735289826}
 --- !u!1 &1942308564
 GameObject:
   m_ObjectHideFlags: 0
@@ -19375,6 +19406,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a072b28c43d7e49689723a2a4f77f6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2055158212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055158213}
+  m_Layer: 0
+  m_Name: MovePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055158213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055158212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.04, y: -0.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1046169366}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062665954
 GameObject:
   m_ObjectHideFlags: 0
@@ -20104,8 +20165,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2108071521}
   - component: {fileID: 2108071520}
-  - component: {fileID: 2108071519}
   - component: {fileID: 2108071522}
+  - component: {fileID: 2108071519}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -20122,7 +20183,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2108071518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d388619e4ae1d474c9492cde66b803f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 2015434067}

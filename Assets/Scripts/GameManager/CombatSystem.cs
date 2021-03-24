@@ -34,8 +34,6 @@ public class CombatSystem : MonoBehaviour
     private bool debugSession = false;
 
     //Accessed classes
-    private EnemyMoves em;
-    private PlayerMoves pm;
     private UpdateHUD uh;
     private PlayerButtons pb;
 
@@ -45,6 +43,7 @@ public class CombatSystem : MonoBehaviour
     private Entity[] all;
     private int currentEntity = 0;
     public int state = 0;
+    public static int numMinions;
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +66,6 @@ public class CombatSystem : MonoBehaviour
 
         livingEnemies = enemyParty.Length;
         
-        em = FindObjectOfType<EnemyMoves>();
-        pm = FindObjectOfType<PlayerMoves>();
         uh = FindObjectOfType<UpdateHUD>();
         pb = FindObjectOfType<PlayerButtons>();
 
@@ -83,7 +80,7 @@ public class CombatSystem : MonoBehaviour
         {
             allyParty = new Entity[4];
             allyParty[0] = player1;
-            MinionBehaviours.numMinions = 3;
+            numMinions = 3;
             print("Debug party active");
             for (int i = 1; i < allyParty.Length; i++)
             {
@@ -94,7 +91,7 @@ public class CombatSystem : MonoBehaviour
         else
         {
             print(s.Count);
-            MinionBehaviours.numMinions = s.Count;
+            numMinions = s.Count;
             allyParty = new Entity[s.Count + 1];
             allyParty[0] = player1;
             for (int i = 1; i <= s.Count; i++)
@@ -199,28 +196,24 @@ public class CombatSystem : MonoBehaviour
             }  
 
             StartCoroutine(ColorBlink(m, targets[i]));
+
             if (all[currentEntity].isAlly)
-            {
-                player1.currentPaint -= m.cost;//Change later
-                state = 3;//When multiple targets can happen, this has to move
-                StateMachine();
-            }
+                player1.currentPaint -= m.cost;
             else
-            {
                 enemyAction[currentEntity - allyParty.Length].sprite = m.moveType;
-                StartCoroutine("SlowTheEnemies");
-            }
+
+            StartCoroutine("TelegraphMove");
 
         }
     }
 
-    private IEnumerator SlowTheEnemies()
+    private IEnumerator TelegraphMove()
     {
-        img[currentEntity - allyParty.Length].GetComponent<enemyCombatAnim>().AnimTime();
+        img[currentEntity].GetComponent<CombatAnim>().AnimTime();
         yield return new WaitForSeconds(1f);
-        img[currentEntity - allyParty.Length].GetComponent<enemyCombatAnim>().Retract();
+        img[currentEntity].GetComponent<CombatAnim>().Retract();
         yield return new WaitForSeconds(1f);
-        state = 3;
+        state = 3;//When multiple targets can happen, this has to move
         StateMachine();
     }
 
@@ -386,29 +379,4 @@ public class CombatSystem : MonoBehaviour
             
         }
     }
-
-    /*private void PlayerTurn()
-    {
-        pm.PlayerDecision(allyParty, enemyParty);
-    }*/
-
-    //this could later be used to decide what attacks the enemy is doing
-    /*public IEnumerator EnemyTurn()
-    {
-        for (int i = 0; i < enemyParty.Length; i++)
-        {
-            if (!enemyParty[i].isDead)
-            {
-                img[i].GetComponent<enemyCombatAnim>().AnimTime();
-                yield return new WaitForSeconds(1f);
-                //Enemy move is decided if enemy is alive
-                enemyAction[i].sprite = ImageAssign(em.ChooseAction(enemyParty[i]));
-                PlayerDeadCheck();
-                img[i].GetComponent<enemyCombatAnim>().Retract();
-                yield return new WaitForSeconds(1f);
-            }
-        }
-
-        Invoke("PlayerTurn", 1);
-    }*/
 }

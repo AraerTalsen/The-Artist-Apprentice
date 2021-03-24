@@ -31,7 +31,7 @@ public class UpdateHUD : MonoBehaviour
     private void UpdateAllyHUD()
     {
         Entity[] a = CombatSystem.allyParty;
-        int numAllies = MinionBehaviours.numMinions + 1;
+        int numAllies = CombatSystem.numMinions + 1;
 
         for (int i = 0; i < a.Length; i++)
         {
@@ -61,7 +61,7 @@ public class UpdateHUD : MonoBehaviour
     public void LoadHUDs()
     {
         Entity[] a = CombatSystem.allyParty;
-        int numAllies = MinionBehaviours.numMinions + 1;
+        int numAllies = CombatSystem.numMinions + 1;
 
         aDisplay[0].gameObject.SetActive(true);
 
@@ -92,7 +92,7 @@ public class UpdateHUD : MonoBehaviour
 
     public void AddAlly(Enemy a)
     {
-        int numAllies = MinionBehaviours.numMinions;
+        int numAllies = CombatSystem.numMinions;
 
         aDisplay[numAllies].gameObject.SetActive(true);
 
