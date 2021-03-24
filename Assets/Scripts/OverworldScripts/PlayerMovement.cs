@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
 
-        UpdateMinionInventoryFunction = FindObjectOfType<ListCreator>();
+        //UpdateMinionInventoryFunction = FindObjectOfType<ListCreator>();
 
         enemy1Combat = false;
         enemy2Combat = false;
