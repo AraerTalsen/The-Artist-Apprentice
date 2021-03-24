@@ -146,8 +146,8 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("BeforeSeanCollision");
             addSeanMinion();
             Debug.Log("AfterSeanCollision");
-            QuestRewardManagerScript.minion1Destroyed = true;
             Destroy(other.gameObject);
+            QuestRewardManagerScript.minion1Destroyed = true;
         }
 
         if (other.gameObject.tag == "enemy2Sketch")
@@ -155,8 +155,8 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("BeforeMikeCollision");
             addMikeMinion();
             Debug.Log("AfterMikeCollision");
-            QuestRewardManagerScript.minion2Destroyed = true;
             Destroy(other.gameObject);
+            QuestRewardManagerScript.minion2Destroyed = true;
         }
 
         if (other.gameObject.tag == "enemy3Sketch")
@@ -164,8 +164,8 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("BeforeDanCollision");
             addDanMinion();
             Debug.Log("AfterDanCollision");
-            QuestRewardManagerScript.minion3Destroyed = true;
             Destroy(other.gameObject);
+            QuestRewardManagerScript.minion3Destroyed = true;
         }
 
         if(other.gameObject.tag == "barrelQuestItem")

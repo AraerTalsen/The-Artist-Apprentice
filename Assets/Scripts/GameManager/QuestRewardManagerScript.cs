@@ -20,7 +20,7 @@ public class QuestRewardManagerScript : MonoBehaviour
         {
             if (PlayerMovement.barrelQuestItemGiven == true)
             {
-                //sketchQuestRewardOne.SetActive(true);
+                sketchQuestRewardOne.SetActive(true);
             }
         }
 
@@ -28,7 +28,7 @@ public class QuestRewardManagerScript : MonoBehaviour
         {
             if (helpfulNPCReward == true)
             {
-                //sketchQuestRewardTwo.SetActive(true);
+                sketchQuestRewardTwo.SetActive(true);
             }
         }
  
