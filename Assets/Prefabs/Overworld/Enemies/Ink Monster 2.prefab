@@ -303,3 +303,5 @@ MonoBehaviour:
   moveY: 0
   alertSprite: {fileID: 3244020728017119805}
   transition: {fileID: 0}
+  enemySpriteRenderer: {fileID: 3244020728232669757}
+  enemyProfile: {fileID: 11400000, guid: 8ad997f88ede20a469b126ab99f959d2, type: 2}

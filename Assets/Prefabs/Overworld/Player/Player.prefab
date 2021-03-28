@@ -123,6 +123,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -224,9 +225,8 @@ MonoBehaviour:
   playerSpeed: 5
   speedStore: 0
   UpdateMinionInventoryFunction: {fileID: 0}
-  minionSprite: {fileID: -8601826741900776645, guid: c60abc9f9cdfc874cb37e76644d224af,
-    type: 3}
   DM: {fileID: 0}
+  questCompletepopup: {fileID: 0}
 --- !u!114 &1909957373736462683
 MonoBehaviour:
   m_ObjectHideFlags: 0

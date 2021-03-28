@@ -139,6 +139,8 @@ MonoBehaviour:
   moveY: 0
   alertSprite: {fileID: 7712543983018384047}
   transition: {fileID: 0}
+  enemySpriteRenderer: {fileID: 7712543982486412577}
+  enemyProfile: {fileID: 11400000, guid: 8ad997f88ede20a469b126ab99f959d2, type: 2}
 --- !u!50 &7712543982486412581
 Rigidbody2D:
   serializedVersion: 4

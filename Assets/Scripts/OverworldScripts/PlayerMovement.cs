@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     public static bool barrelQuestItemPickedUp = false;
     public static bool barrelQuestItemGiven = false;
 
+    public GameObject questCompletepopup;
+
+    public static int mostRecentQuestComplete = 0;
+
     void Start()
     {
         //if (!playerExists)
@@ -51,8 +55,6 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
-
-        //UpdateMinionInventoryFunction = FindObjectOfType<ListCreator>();
 
         enemy1Combat = false;
         enemy2Combat = false;
@@ -141,28 +143,29 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "enemy1Sketch")
         {
-            Debug.Log("BeforeSeanCollision");
             addSeanMinion();
-            Debug.Log("AfterSeanCollision");
+            mostRecentQuestComplete = 1;
             Destroy(other.gameObject);
+            questCompletepopup.SetActive(true);
+
             QuestRewardManagerScript.minion1Destroyed = true;
         }
 
         if (other.gameObject.tag == "enemy2Sketch")
         {
-            Debug.Log("BeforeMikeCollision");
             addMikeMinion();
-            Debug.Log("AfterMikeCollision");
+            mostRecentQuestComplete = 2;
             Destroy(other.gameObject);
+            questCompletepopup.SetActive(true);
             QuestRewardManagerScript.minion2Destroyed = true;
         }
 
         if (other.gameObject.tag == "enemy3Sketch")
         {
-            Debug.Log("BeforeDanCollision");
             addDanMinion();
-            Debug.Log("AfterDanCollision");
+            mostRecentQuestComplete = 3;
             Destroy(other.gameObject);
+            questCompletepopup.SetActive(true);
             QuestRewardManagerScript.minion3Destroyed = true;
         }
 
