@@ -73,7 +73,6 @@ public class UpdateHUD : MonoBehaviour
         {
             Enemy c = (Enemy)a[i];
             aDisplay[i].gameObject.SetActive(true);
-
             aDisplay[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Name: " + c.eName;
             aDisplay[i].transform.GetChild(1).GetComponent<Slider>().maxValue = c.maxHP;
             aSprites[i - 1].sprite = ((Enemy)(a[i])).enemySprite;

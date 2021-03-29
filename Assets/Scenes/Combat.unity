@@ -1756,10 +1756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224765524}
   - component: {fileID: 224765525}
-  - component: {fileID: 224765526}
   - component: {fileID: 224765528}
-  - component: {fileID: 224765527}
-  - component: {fileID: 224765523}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1767,18 +1764,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &224765523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224765522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2eda8411e12c194dbb6bae820fcf76e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &224765524
 Transform:
   m_ObjectHideFlags: 0
@@ -1847,55 +1832,6 @@ MonoBehaviour:
   - {fileID: 2108071518}
   - {fileID: 1994069}
   state: 0
---- !u!114 &224765526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224765522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8eea1f9ba9b96c4487e14d1b5a69c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &224765527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224765522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a46bebc3d4372645bf5d1a8865286c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minionHUDS:
-  - {fileID: 131197170}
-  - {fileID: 614046699}
-  - {fileID: 657817952}
-  spawnPoints:
-  - {x: -3, y: 2.75}
-  - {x: -3, y: -0.9}
-  - {x: -3, y: -4.35}
-  minionBody: {fileID: 398724924085973504, guid: a7ddde629e4834209b9f93c93385acf4,
-    type: 3}
-  minionBodies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  minions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  bodies:
-  - {fileID: 106917633}
-  - {fileID: 1034755245}
-  - {fileID: 1382840265}
-  pb: {fileID: 0}
-  cs: {fileID: 0}
-  uh: {fileID: 0}
 --- !u!114 &224765528
 MonoBehaviour:
   m_ObjectHideFlags: 0

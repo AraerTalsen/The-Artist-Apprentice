@@ -48,6 +48,19 @@ public class CombatSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EnemyPartyBuilder();
+
+        uh = FindObjectOfType<UpdateHUD>();
+        pb = FindObjectOfType<PlayerButtons>();
+
+        SetUpCombat();
+    }
+
+    //Initiates enemy party
+    public void EnemyPartyBuilder()
+    {
+        //When a battle starts from a level, the enemy pumps data to the enemy party array. If the battle is initiated from
+        //the Combat scene, a debugging party is loaded
         if (enemyParty == null || enemyParty.Length == 0)
         {
             enemyParty = new Enemy[dE.Length];
@@ -55,64 +68,46 @@ public class CombatSystem : MonoBehaviour
             for (int i = 0; i < enemyParty.Length; i++)
             {
                 enemyParty[i] = Instantiate(dE[i]);
-                //enemyParty[i].currentHP = 1;
             }
             debugSession = true;
         }
         else debugSession = false;
 
+        //Attaches visual component of enemy to Scriptable Object
         for (int i = 0; i < enemyParty.Length; i++)
             enemyParty[i].body = eDisplay[i].transform.GetChild(0).gameObject;
 
         livingEnemies = enemyParty.Length;
-        
-        uh = FindObjectOfType<UpdateHUD>();
-        pb = FindObjectOfType<PlayerButtons>();
+    }
 
-        SetUpCombat();
+    //Initiates ally party
+    public void AllyPartyBuilder()
+    {
+        //When a battle starts from a level, the player pumps data to the ally party array. If the battle is initiated from
+        //the Combat scene, a debugging party is loaded
+
+        List<string> allies = ListCreator.combatMinionsList;
+        numMinions = debugSession ? 3 : allies.Count;//Check if debug session
+
+        allyParty = new Entity[numMinions + 1];
+        all = new Entity[numMinions + livingEnemies + 1];//Array to hold all entities on the field
+        allyParty[0] = player1;
+        allyParty[0].body = aDisplay[0].transform.GetChild(0).gameObject;
+        all[0] = player1;
+        for (int i = 1; i <= numMinions; i++)
+        {
+            //Loads either defaults or specified enemies depening on whether it is a debug session
+            allyParty[i] = debugSession ? Instantiate(dA[i - 1]) : Instantiate((Entity)Resources.Load("Enemies/" + allies[i - 1], typeof(Object)));
+            allyParty[i].isAlly = true;
+            allyParty[i].body = aDisplay[i].transform.GetChild(0).gameObject;//Attaches visual component of enemy to Scriptable Object
+            all[i] = allyParty[i];
+        }
+        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
     }
 
     private void SetUpCombat()
     {
-        List<string> s = ListCreator.combatMinionsList;
-        
-        if (s == null || debugSession)
-        {
-            allyParty = new Entity[4];
-            allyParty[0] = player1;
-            numMinions = 3;
-            print("Debug party active");
-            for (int i = 1; i < allyParty.Length; i++)
-            {
-                allyParty[i] = Instantiate(dA[i - 1]);
-                allyParty[i].isAlly = true;
-            }                  
-        }
-        else
-        {
-            print(s.Count);
-            numMinions = s.Count;
-            allyParty = new Entity[s.Count + 1];
-            allyParty[0] = player1;
-            for (int i = 1; i <= s.Count; i++)
-            {
-                allyParty[i] = Instantiate((Entity)Resources.Load("Enemies/" + s[i - 1], typeof(Object)));
-                allyParty[i].isAlly = true;
-            }
-        }
-        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
-
-        for (int i = 0; i < allyParty.Length; i++)
-        {
-            allyParty[i].body = aDisplay[i].transform.GetChild(0).gameObject;
-        }  
-
-        all = new Entity[allyParty.Length + enemyParty.Length];
-
-        for(int i = 0; i < allyParty.Length; i++)
-        {
-            all[i] = allyParty[i];
-        }
+        AllyPartyBuilder();
 
         for (int i = allyParty.Length; i < all.Length; i++)
         {
@@ -122,7 +117,6 @@ public class CombatSystem : MonoBehaviour
         uh.LoadHUDs();
         uh.UpdateEveryHUD();
 
-        //PlayerTurn();
         StateMachine();
     }
 
