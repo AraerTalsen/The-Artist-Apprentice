@@ -18,32 +18,30 @@ public class CombatSystem : MonoBehaviour
 
     public static Enemy[] enemyParty;
     public static Entity[] allyParty;
+    private Entity[] all;
 
     //Entity placements
     public Transform playerSpawn; 
     public Transform[] pos; //Spawn points for enemies
 
     //Party UI
-
     public GameObject[] eDisplay; //The panel that enemy info is listed on. [Disable to make everything disabled.]
     public GameObject[] aDisplay; //The panel that ally info is listed on. [Disable to make everything disabled.]
     public Image[] enemyAction;
     public Sprite[] actions;
-
-    public static int livingEnemies;
-    private bool debugSession = false;
+    public GameObject[] img;
 
     //Accessed classes
     private UpdateHUD uh;
     private PlayerButtons pb;
 
-    public GameObject[] img;
-
     //State revision
-    private Entity[] all;
+    public static int livingEnemies;
+    public static int numMinions;
+    private bool debugSession = false;
     private int currentEntity = 0;
     public int state = 0;
-    public static int numMinions;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -187,7 +185,13 @@ public class CombatSystem : MonoBehaviour
                 StatusEffect sf = Instantiate(m.sf);
                 targets[i].statusEffect[m.sf.activationPeriod] = sf;
                 sf.host = targets[i];
-            }  
+            }
+
+            //Activate minigame
+            /*if(m.miniGame != null)
+            {
+                GameObject g = Instantiate(m.miniGame);
+            }*/
 
             StartCoroutine(ColorBlink(m, targets[i]));
 

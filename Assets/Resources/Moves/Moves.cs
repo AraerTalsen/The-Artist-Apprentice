@@ -13,4 +13,5 @@ public class Moves : ScriptableObject
     public bool isFriendlyTarget;
     public Sprite moveType;
     public Color effectColor;
+    public GameObject miniGame;
 }
