@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueInfo:
   - myVoice: {fileID: 0}
-    myText: 'With all the Vandals running around, I got seperated from my  friends. '
+    myText: 'With all the craziness from the ink splotches, I got seperated from
+      my  friends. '
   - myVoice: {fileID: 0}
-    myText: I'm sure they'd be thankful if you talked to them and gave them a hand!
+    myText: I'm sure they'd be thankful if you talked to them and gave them a hand,
+      I know they're in a whole heap of trouble!

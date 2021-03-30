@@ -14,6 +14,9 @@ public class PortalOverworldScript : MonoBehaviour
     public Animator transition;
     public SpriteRenderer enemySpriteRenderer;
 
+    public float portalSpawnMaxX, portalSpawnMaxY, portalSpawnMinX, portalSpawnMinY;
+    public Transform portalTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class PortalOverworldScript : MonoBehaviour
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        this.gameObject.transform.position = new Vector3(Random.Range(portalSpawnMinX, portalSpawnMaxX), Random.Range(portalSpawnMinY, portalSpawnMaxY), this.transform.position.z);
     }
 
     //Start combat if collide with player

@@ -18,10 +18,12 @@ MonoBehaviour:
       a real mess recently...
   - myVoice: {fileID: 0}
     myText: Do you by any chance know the Master?? He used to come in here and keep
-      the Paint Vandals away, but I haven't seen him...
+      the painting clean, but I haven't seen him...
   - myVoice: {fileID: 0}
-    myText: Can you do me a favor and get rid of the Paint Vandals? They're causing
+    myText: Can you do me a favor and get rid of the ink splotches? They're causing
       all kinds of problems around here.
   - myVoice: {fileID: 0}
-    myText: I don't have anything to give you right now, but I believe in you! I
-      know you can do it!
+    myText: Here, take this! I've seen the Master use them to help clean before!
+  - myVoice: {fileID: 0}
+    myText: To use them, open up your inventory with TAB and add them to an open
+      combat slot! Good luck!

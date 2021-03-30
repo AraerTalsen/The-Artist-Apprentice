@@ -20,6 +20,7 @@ MonoBehaviour:
     myText: I need your help!! I was minding my own buisness, enjoying the sunlight,
       when all of a sudden...
   - myVoice: {fileID: 0}
-    myText: ...a Paint Vandal stole my barrel! I love that barrel! It was a gift!!
+    myText: ...my barrel got sucked into one of those ink splotches! I love that
+      barrel! It was a gift!!
   - myVoice: {fileID: 0}
     myText: 'Can you get my barrel back for me? I need it for, ehm, ~personal~ reasons... '
