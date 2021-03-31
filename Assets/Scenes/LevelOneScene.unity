@@ -6364,6 +6364,7 @@ MonoBehaviour:
   - {fileID: 1775489450}
   - {fileID: 1227506575}
   Player: {fileID: 286156588}
+  questBarrel: {fileID: 1721531557}
 --- !u!1001 &196420413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13756,8 +13757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whackPack:
   - {fileID: 1665380092}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1218991914}
+  - {fileID: 2085718587}
 --- !u!1 &723618047
 GameObject:
   m_ObjectHideFlags: 0
@@ -14101,7 +14102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754770728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
@@ -14128,7 +14129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754770728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -14151,7 +14152,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754770728}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

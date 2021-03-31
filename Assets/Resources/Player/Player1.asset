@@ -15,9 +15,9 @@ MonoBehaviour:
   eName: Casey
   Description: is cool
   maxHP: 30
-  currentHP: 30
-  baseHitValue: 5
-  HitValue: 5
+  currentHP: 10
+  baseHitValue: 100000
+  HitValue: 10101001
   targeted: 0
   isDead: 0
   isAlly: 1
@@ -32,5 +32,5 @@ MonoBehaviour:
   playerPrefab: {fileID: 5394900565442393736, guid: c9041df8c1db04f41896cb762819526a,
     type: 3}
   maxMinions: 3
-  currentPaint: 10
+  currentPaint: 7
   maxPaint: 10

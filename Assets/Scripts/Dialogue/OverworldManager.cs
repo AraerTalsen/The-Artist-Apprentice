@@ -11,6 +11,8 @@ public class OverworldManager : MonoBehaviour
 
     public Transform Player;
 
+    public GameObject questBarrel;
+
     private void Awake()
     {
         if(instance == null)
@@ -18,6 +20,10 @@ public class OverworldManager : MonoBehaviour
             instance = this;
         }
 
+        if (PlayerMovement.barrelQuestItemGiven == true || PlayerMovement.barrelQuestItemPickedUp == true)
+        {
+            questBarrel.SetActive(false);
+        }
 
     }
 
