@@ -30,6 +30,7 @@ public class EntityActivator : MonoBehaviour
 
     private void Alt()
     {
+        Debug.Log("this is running alt");
         List<Whackable>[] w =
             {
                 new List<Whackable>(),
@@ -37,7 +38,13 @@ public class EntityActivator : MonoBehaviour
             };
 
         for (int i = 0; i < whack.Count; i++)
+        {
+            Debug.Log(whack[i]);
+            Debug.Log(whack[i].type);
+            Debug.Log(w[whack[i].type]);
             w[whack[i].type].Add(whack[i]);
+
+        }
 
         for (int i = 0; i < w.Length; i++)
             ActiveOverworldEntity.LoadActive(w[i]);
