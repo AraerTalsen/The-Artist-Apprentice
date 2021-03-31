@@ -15,9 +15,9 @@ MonoBehaviour:
   eName: Casey
   Description: is cool
   maxHP: 30
-  currentHP: 14
+  currentHP: 30
   baseHitValue: 5
-  HitValue: 30
+  HitValue: 5
   targeted: 0
   isDead: 0
   isAlly: 1
