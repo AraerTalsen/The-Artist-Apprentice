@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7711840303020386429}
   - component: {fileID: 501098551404647230}
   - component: {fileID: 3567252601486137499}
+  - component: {fileID: -2242684207304168713}
   m_Layer: 0
   m_Name: AA_Trop1_Anim_0 1
   m_TagString: Untagged
@@ -120,3 +121,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.005531311}
   serializedVersion: 2
   m_Radius: 0.4040308
+--- !u!114 &-2242684207304168713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115531555743875384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d88545828ce6841ac0ce149c68436a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
+  type: 0
+  id: 0
+  minion: 0
+  on: 1
+  whackable: 1
+  canvas: {fileID: 0}

@@ -7927,6 +7927,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2052245975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &343035560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2516861248498642678, guid: 2d6ef7c8ed16ad24c9c440da15a7c432,
+    type: 3}
+  m_PrefabInstance: {fileID: 495378767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &343035561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343035560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d88545828ce6841ac0ce149c68436a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
+  type: 0
+  id: 0
+  minion: 0
+  on: 1
+  whackable: 0
+  canvas: {fileID: 0}
 --- !u!1001 &343402828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12751,6 +12776,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1373768322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &664320455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664320456}
+  m_Layer: 0
+  m_Name: Assets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &664320456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664320455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.55, y: 20.59, z: -2.1191406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1721531559}
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &666969006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13759,6 +13815,7 @@ MonoBehaviour:
   - {fileID: 1665380092}
   - {fileID: 1218991914}
   - {fileID: 2085718587}
+  - {fileID: 664320455}
 --- !u!1 &723618047
 GameObject:
   m_ObjectHideFlags: 0
@@ -32114,7 +32171,7 @@ Transform:
   - {fileID: 1705484413}
   - {fileID: 926787253}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1220674290
 PrefabInstance:
@@ -38945,7 +39002,7 @@ Transform:
   - {fileID: 2075323010}
   - {fileID: 395460755}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1669202671
 PrefabInstance:
@@ -101150,6 +101207,7 @@ GameObject:
   - component: {fileID: 1721531559}
   - component: {fileID: 1721531558}
   - component: {fileID: 1721531560}
+  - component: {fileID: 1721531561}
   m_Layer: 0
   m_Name: QuestItemBarrel
   m_TagString: barrelQuestItem
@@ -101215,12 +101273,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721531557}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.55, y: 20.59, z: -2.1191406}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 664320456}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1721531560
 BoxCollider2D:
@@ -101248,6 +101306,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78125, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!114 &1721531561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721531557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d88545828ce6841ac0ce149c68436a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
+  type: 0
+  id: 0
+  minion: 0
+  on: 1
+  whackable: 0
+  canvas: {fileID: 0}
 --- !u!1001 &1724481158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109141,7 +109218,7 @@ Transform:
   - {fileID: 1612553053}
   - {fileID: 1901768632}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2092245375
 PrefabInstance:

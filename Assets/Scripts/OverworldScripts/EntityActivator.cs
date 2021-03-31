@@ -20,7 +20,10 @@ public class EntityActivator : MonoBehaviour
         if (!LocationRememberer.awokenDim[FindObjectOfType<LocationLoader>().num])
         {
             for (int i = 0; i < whack.Count; i++)
+            {
                 whack[i].id = ActiveOverworldEntity.AddEntity(whack[i].type, whack[i]);
+            }
+                
         }
         else
         {
@@ -39,11 +42,7 @@ public class EntityActivator : MonoBehaviour
 
         for (int i = 0; i < whack.Count; i++)
         {
-            Debug.Log(whack[i]);
-            Debug.Log(whack[i].type);
-            Debug.Log(w[whack[i].type]);
             w[whack[i].type].Add(whack[i]);
-
         }
 
         for (int i = 0; i < w.Length; i++)

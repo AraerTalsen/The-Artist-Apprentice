@@ -33,7 +33,6 @@ public class ActiveOverworldEntity : MonoBehaviour
         int type = w[0].type;
         for(int j = 0; j < entityInDimension[dim][type].Count; j++)
         {
-            Debug.Log(w[j].gameObject.name + " " + entityInDimension[dim][type][j]);
             if (!entityInDimension[dim][type][j] || !w[j].on)
             {
                 if (!w[j].on) entityInDimension[dim][type][j] = false;

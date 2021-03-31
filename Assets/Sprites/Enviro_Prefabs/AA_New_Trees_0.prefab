@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3153433314473367107}
   - component: {fileID: 3758640448269610616}
   - component: {fileID: 5041101151495203754}
+  - component: {fileID: 3957707938693402272}
   m_Layer: 0
   m_Name: AA_New_Trees_0
   m_TagString: Untagged
@@ -110,3 +111,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76537085, y: 0.3700142}
   m_EdgeRadius: 0
+--- !u!114 &3957707938693402272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953587549441280278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d88545828ce6841ac0ce149c68436a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
+  type: 0
+  id: 0
+  minion: 0
+  on: 1
+  whackable: 1
+  canvas: {fileID: 0}
