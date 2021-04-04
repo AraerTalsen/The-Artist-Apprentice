@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 398724924085973566}
   - component: {fileID: 398724924085973567}
   - component: {fileID: 920404810320667887}
+  - component: {fileID: -7035912638212106679}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Clod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 4c478ae9516b0fe4c895962852bbdac4, type: 3}
+  m_Sprite: {fileID: 7314576273023967962, guid: 7c6c9232acb975f4685a8450bb070752,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 398724924085973504}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 64389d63559474a67b4e0235f0404246, type: 2}
+  m_Controller: {fileID: 9100000, guid: f51f1475839f34e3fa121281d3cb3ea3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -102,3 +104,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7035912638212106679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398724924085973504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dd3120e098e7b4dadadc28ebd448aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movePoint: {fileID: 0}
+  retractPoint: {fileID: 0}

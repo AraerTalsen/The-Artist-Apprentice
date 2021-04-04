@@ -27,7 +27,7 @@ MonoBehaviour:
   moveList:
   - {fileID: 11400000, guid: 9dca445721584214abb35fb64b9093fe, type: 2}
   - {fileID: 11400000, guid: d614e55beb423f147a3163c0b1a636d8, type: 2}
-  body: {fileID: 0}
+  body: {fileID: 398724924085973504, guid: a7ddde629e4834209b9f93c93385acf4, type: 3}
   enemyType: {fileID: 6097236154317962364, guid: a3d7b21235a5f48d69a32f0ce9f88957,
     type: 3}
   enemySprite: {fileID: 21300000, guid: 4c478ae9516b0fe4c895962852bbdac4, type: 3}

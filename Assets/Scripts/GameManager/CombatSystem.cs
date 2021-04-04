@@ -73,7 +73,14 @@ public class CombatSystem : MonoBehaviour
 
         //Attaches visual component of enemy to Scriptable Object
         for (int i = 0; i < enemyParty.Length; i++)
-            enemyParty[i].body = eDisplay[i].transform.GetChild(0).gameObject;
+        {
+            GameObject g = Instantiate(enemyParty[i].body);
+            g.transform.SetParent(eDisplay[i].transform);//Attaches visual component of enemy to Scriptable Object
+            g.transform.localPosition = Vector2.zero;
+            CombatAnim ca = g.GetComponent<CombatAnim>();
+            ca.movePoint = g.transform.parent.GetChild(2);
+            ca.retractPoint = g.transform.parent.GetChild(3);
+        }
 
         livingEnemies = enemyParty.Length;
     }
@@ -97,7 +104,9 @@ public class CombatSystem : MonoBehaviour
             //Loads either defaults or specified enemies depening on whether it is a debug session
             allyParty[i] = debugSession ? Instantiate(dA[i - 1]) : Instantiate((Entity)Resources.Load("Enemies/" + allies[i - 1], typeof(Object)));
             allyParty[i].isAlly = true;
-            allyParty[i].body = aDisplay[i].transform.GetChild(0).gameObject;//Attaches visual component of enemy to Scriptable Object
+            GameObject g = Instantiate(allyParty[i].body);
+            g.transform.SetParent(aDisplay[i].transform);//Attaches visual component of enemy to Scriptable Object
+            g.transform.localPosition = Vector2.zero;
             all[i] = allyParty[i];
         }
         ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
