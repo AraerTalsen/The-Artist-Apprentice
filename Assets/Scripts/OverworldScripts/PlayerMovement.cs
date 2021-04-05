@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static int mostRecentQuestComplete = 0;
 
+    public bool inkProofShoesOn = false;
+
     void Start()
     {
         //if (!playerExists)
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         pauseGame = false;
 
         speedStore = playerSpeed;
+        inkProofShoesOn = false;
 }
 
     //Takes the wasd and arrow keys for movement in 8 directions
@@ -175,12 +178,19 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             barrelQuestItemPickedUp = true;
         }
+
+        if (other.gameObject.tag == "InkProofShoes")
+        {
+            Destroy(other.gameObject);
+            inkProofShoesOn = true;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "InkTiles")
         {
+            if(inkProofShoesOn == false)
             speedStore = slowedSpeed;
         }
     }
@@ -198,7 +208,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "InkTiles")
         {
-            speedStore = slowedSpeed;
+            if (inkProofShoesOn == false)
+                speedStore = slowedSpeed;
         }
 
     }

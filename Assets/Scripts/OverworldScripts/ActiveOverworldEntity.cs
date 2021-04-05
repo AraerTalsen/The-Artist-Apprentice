@@ -6,7 +6,7 @@ using UnityEngine;
 public class ActiveOverworldEntity : MonoBehaviour
 {
     public static int dim = 1;
-    public static int[] entityCount = { 0, 4 };
+    public static int[] entityCount = { 0, 8 };
 
     public static List<bool>[][] entityInDimension =
     {

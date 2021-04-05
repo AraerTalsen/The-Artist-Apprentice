@@ -12,6 +12,9 @@ TagManager:
   - Enemy
   - barrelQuestItem
   - InkTiles
+  - Hit
+  - BarEnd
+  - InkProofShoes
   layers:
   - Default
   - TransparentFX
