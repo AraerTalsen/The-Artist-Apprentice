@@ -24,6 +24,8 @@ public class EnemyOverworldMovement : MonoBehaviour
     public float moveX;
     public float moveY;
 
+    public float minMoveX, maxMoveX, minMoveY, maxMoveY;
+
     public GameObject alertSprite;
 
     public Animator transition;
@@ -130,8 +132,8 @@ public class EnemyOverworldMovement : MonoBehaviour
 
     public void NewValue()
     {
-        moveX = Random.Range(-10f, 10f);
-        moveY = Random.Range(-10f, 10f);
+        moveX = Random.Range(minMoveX, maxMoveX);
+        moveY = Random.Range(minMoveY, maxMoveY);
         newValue = false;
     }
 

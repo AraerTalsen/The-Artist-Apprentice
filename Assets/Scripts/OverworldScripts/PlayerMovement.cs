@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     //sets the speed the player moves at
     public float playerSpeed = 10.0f;
     public float speedStore;
+    public float slowedSpeed;
 
     public ListCreator UpdateMinionInventoryFunction;
 
@@ -180,8 +181,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "InkTiles")
         {
-            Debug.Log("On Ink");
-            speedStore = playerSpeed/1.5f;
+            speedStore = slowedSpeed;
         }
     }
 
@@ -189,8 +189,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "InkTiles")
         {
-            Debug.Log("off ink");
-            speedStore = playerSpeed*1.5f;
+            speedStore = 5f;
+        }
+
+    }
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "InkTiles")
+        {
+            speedStore = slowedSpeed;
         }
 
     }
