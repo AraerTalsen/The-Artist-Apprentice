@@ -176,6 +176,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "InkTiles")
+        {
+            Debug.Log("On Ink");
+            speedStore = playerSpeed/1.5f;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "InkTiles")
+        {
+            Debug.Log("off ink");
+            speedStore = playerSpeed*1.5f;
+        }
+
+    }
+
     private void Whack()
     {
         if(!swing && Input.GetKey(KeyCode.LeftShift))

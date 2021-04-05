@@ -11,6 +11,7 @@ TagManager:
   - enemy3Sketch
   - Enemy
   - barrelQuestItem
+  - InkTiles
   layers:
   - Default
   - TransparentFX
