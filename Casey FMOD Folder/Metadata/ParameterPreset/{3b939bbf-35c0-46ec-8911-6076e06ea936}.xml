@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{3b939bbf-35c0-46ec-8911-6076e06ea936}">
+		<property name="name">
+			<value>Slow Music</value>
+		</property>
+		<relationship name="folder">
+			<destination>{36cc16d2-b358-4ea2-860a-bbfc7f601eda}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{83f813e0-f9e7-43de-8286-6af0e218212e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{83f813e0-f9e7-43de-8286-6af0e218212e}">
+		<property name="minimum">
+			<value>-24</value>
+		</property>
+		<property name="maximum">
+			<value>0</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
