@@ -21,7 +21,9 @@ MonoBehaviour:
   targeted: 0
   isDead: 0
   isAlly: 0
-  statusEffect: []
+  statusEffect:
+  - {fileID: 0}
+  - {fileID: 0}
   moveList:
   - {fileID: 11400000, guid: 9dca445721584214abb35fb64b9093fe, type: 2}
   - {fileID: 11400000, guid: d614e55beb423f147a3163c0b1a636d8, type: 2}

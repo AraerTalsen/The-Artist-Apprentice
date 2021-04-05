@@ -97,7 +97,9 @@ public class CombatSystem : MonoBehaviour
         allyParty = new Entity[numMinions + 1];
         all = new Entity[numMinions + livingEnemies + 1];//Array to hold all entities on the field
         allyParty[0] = player1;
-        allyParty[0].body = aDisplay[0].transform.GetChild(0).gameObject;
+        GameObject gameobject = Instantiate(allyParty[0].body);
+        gameobject.transform.SetParent(aDisplay[0].transform);//Attaches visual component of enemy to Scriptable Object
+        gameobject.transform.localPosition = Vector2.zero;
         all[0] = player1;
         for (int i = 1; i <= numMinions; i++)
         {
