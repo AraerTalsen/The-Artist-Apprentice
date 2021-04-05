@@ -214,26 +214,15 @@ public class PlayerMovement : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Summon");
         ListCreator.numberOfItemsCollected++;
         ListCreator.runInventoryUpdate = true;
-        Debug.Log(UpdateMinionInventoryFunction == null);
-        Debug.Log("BeforeDanMinion");
         UpdateMinionInventoryFunction.InsertDanMinion();
-        Debug.Log("AfterDanMinion");
     }
 
     public void addMikeMinion()
     {
-        Debug.Log(1);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Summon");
-        Debug.Log(2);
         ListCreator.numberOfItemsCollected++;
-        Debug.Log(3);
         ListCreator.runInventoryUpdate = true;
-        Debug.Log(4);
-        Debug.Log(UpdateMinionInventoryFunction == null);
-        Debug.Log(UpdateMinionInventoryFunction);
-        Debug.Log("BeforeMikeMinion");
         UpdateMinionInventoryFunction.InsertMikeMinion();
-        Debug.Log("AfterMikeMinion");
     }
 
     public void addSeanMinion()
@@ -241,9 +230,6 @@ public class PlayerMovement : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Summon");
         ListCreator.numberOfItemsCollected++;
         ListCreator.runInventoryUpdate = true;
-        Debug.Log(UpdateMinionInventoryFunction == null);
-        Debug.Log("BeforeSeanMinion");
         UpdateMinionInventoryFunction.InsertSeanMinion();
-        Debug.Log("AfterSeanMinion");
     }
 }
