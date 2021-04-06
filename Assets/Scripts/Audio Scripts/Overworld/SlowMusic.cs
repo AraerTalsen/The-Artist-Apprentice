@@ -27,15 +27,11 @@ public class SlowMusic : MonoBehaviour
     {
         if (Vector2.Distance(gameObject.transform.position, OverworldManager.instance.Player.position) < interactRange)
         {
-            //StartCoroutine(pitchSlowDown());
-
             if (pitchValue >= pitchMax)
             {
                 instance.setParameterByName("Slow Music", pitchValue);
                 pitchValue = pitchValue - pitchValueDecreaser;
             }
-
-            //Debug.Log("Player has entered the CUM ZONE");
         }
         else
         {
@@ -44,24 +40,17 @@ public class SlowMusic : MonoBehaviour
                 instance.setParameterByName("Slow Music", pitchValue);
                 pitchValue = pitchValue + pitchValueDecreaser;
             }
-
-            //Debug.Log("Player has left the CUM ZONE");
         }
     }
-
-    //IEnumerator pitchSlowDown()
-    //{
-    //    pitchValue = pitchValue - 0.2f;
-
-    //    if (pitchValue >= pitchMax)
-    //    {
-    //        yield return new WaitForSeconds(1f);
-    //    }
-    //}
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, interactRange);
+    }
+
+    private void OnDestroy()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
