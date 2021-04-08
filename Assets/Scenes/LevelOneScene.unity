@@ -1712,6 +1712,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 317370383}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &95414144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95414145}
+  m_Layer: 0
+  m_Name: CombatRewards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95414145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95414144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 861897997}
+  - {fileID: 1285668593}
+  - {fileID: 1979682030}
+  - {fileID: 1560177545}
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &95982409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 604222243798258138, guid: 2d6ef7c8ed16ad24c9c440da15a7c432,
@@ -15782,8 +15816,8 @@ Transform:
   m_LocalPosition: {x: 6.1, y: 18.8, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 95414145}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &861897998
 BoxCollider2D:
@@ -33300,8 +33334,8 @@ Transform:
   m_LocalPosition: {x: 12.91, y: 1.31, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 95414145}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1285829815
 PrefabInstance:
@@ -37451,8 +37485,8 @@ Transform:
   m_LocalPosition: {x: 9.68, y: -24.36, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 95414145}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1561341838
 PrefabInstance:
@@ -108223,8 +108257,8 @@ Transform:
   m_LocalPosition: {x: 25.61, y: -15.4, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 95414145}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1983917999 stripped
 Transform:
