@@ -8,6 +8,8 @@ public class OverworldManager : MonoBehaviour
 
     public List<GameObject> inkPortals;
     public List<GameObject> inkTiles;
+    public List<GameObject> lootRewards;
+    public List<GameObject> overWorldEnemies;
 
     public Transform Player;
 
@@ -35,6 +37,11 @@ public class OverworldManager : MonoBehaviour
             if (inkPortals[i].activeSelf == false)
             {
                 inkTiles[i].SetActive(false);
+                lootRewards[i].SetActive(true);
+                if(overWorldEnemies[i].activeSelf == true)
+                {
+                    overWorldEnemies[i].SetActive(false);
+                } 
             }
         }
     }

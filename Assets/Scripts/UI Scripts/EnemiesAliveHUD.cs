@@ -12,7 +12,7 @@ public class EnemiesAliveHUD : MonoBehaviour
 
     public void Start()
     {
-        t.text = "Enemies: " + ActiveOverworldEntity.entityCount[1];
+        t.text = "Portals Remaining: " + ActiveOverworldEntity.entityCount[1];
 
         if (ActiveOverworldEntity.entityCount[1] == 0)
         {
