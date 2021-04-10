@@ -15,6 +15,7 @@ TagManager:
   - Hit
   - BarEnd
   - InkProofShoes
+  - HealFountain
   layers:
   - Default
   - TransparentFX
