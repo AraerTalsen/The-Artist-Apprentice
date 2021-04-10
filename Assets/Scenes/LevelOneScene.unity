@@ -8342,6 +8342,31 @@ PrefabInstance:
       propertyPath: UpdateMinionInventoryFunction
       value: 
       objectReference: {fileID: 841274172}
+    - target: {fileID: 2967020296105483940, guid: c9041df8c1db04f41896cb762819526a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967020296105483940, guid: c9041df8c1db04f41896cb762819526a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6561587
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967020296105483940, guid: c9041df8c1db04f41896cb762819526a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.09233712
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967020296105483940, guid: c9041df8c1db04f41896cb762819526a,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967020296105483940, guid: c9041df8c1db04f41896cb762819526a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4048037190172155731, guid: c9041df8c1db04f41896cb762819526a,
         type: 3}
       propertyPath: m_RootOrder

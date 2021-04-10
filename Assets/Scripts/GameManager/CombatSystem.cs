@@ -111,7 +111,7 @@ public class CombatSystem : MonoBehaviour
             g.transform.localPosition = Vector2.zero;
             all[i] = allyParty[i];
         }
-        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).maxPaint;
+        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).currentPaint;
     }
 
     private void SetUpCombat()
