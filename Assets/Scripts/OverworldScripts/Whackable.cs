@@ -8,12 +8,19 @@ public class Whackable : MonoBehaviour
     public int type, id;
     public bool minion, on = true, whackable = false;
     public Collider2D canvas;
+    public Player playerPaint;
 
     public void GetWhacked()
     {
         if(whackable)
         {
             on = false;
+            if (playerPaint.currentPaint < playerPaint.maxPaint)
+            {
+                PlayerMovement.displayPaintGain = true;
+                Debug.Log(PlayerMovement.displayPaintGain);
+                playerPaint.currentPaint++;
+            }
             ActiveOverworldEntity.entityInDimension[1][type][id] = false;
             gameObject.SetActive(false);
         }

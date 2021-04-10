@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //player overworld movement script
 public class PlayerMovement : MonoBehaviour
@@ -42,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool inkProofShoesOn = false;
 
+    public GameObject ObjectWhacked;
+
+    public static bool displayPaintGain;
+    public float displayPaintGainTimer;
+
     void Start()
     {
         //if (!playerExists)
@@ -69,9 +75,11 @@ public class PlayerMovement : MonoBehaviour
 
         speedStore = playerSpeed;
         inkProofShoesOn = false;
+        displayPaintGain = false;
+        displayPaintGainTimer = 0;
 }
 
-    //Takes the wasd and arrow keys for movement in 8 directions
+    //Takes the wasd and arrow keys for movement in 4 directions
     void Update()
     {
         LocationRememberer.pos[num] = transform.position;
@@ -118,6 +126,18 @@ public class PlayerMovement : MonoBehaviour
             }
 
             Whack(); //Check if player wants to whack. If so, whack.
+
+            if (displayPaintGain == true)
+            {
+                ObjectWhacked.SetActive(true);
+                displayPaintGainTimer = displayPaintGainTimer - Time.deltaTime;
+                if (displayPaintGainTimer < -1)
+                {
+                    displayPaintGain = false;
+                    ObjectWhacked.SetActive(false);
+                    displayPaintGainTimer = 0;
+                }
+            }
         }
         else if (DialogueManager.inDialogue)
         {
@@ -270,4 +290,12 @@ public class PlayerMovement : MonoBehaviour
         ListCreator.runInventoryUpdate = true;
         UpdateMinionInventoryFunction.InsertSeanMinion();
     }
+
+    public void showPaintGainOnWhack() {
+
+
+    }
+
+       
+
 }
