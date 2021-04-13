@@ -88,6 +88,15 @@ public class EnemyOverworldMovement : MonoBehaviour
 
             float step = speed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveX, moveY), step);
+
+            if (this.transform.position.x < moveX)
+            {
+                enemySpriteRenderer.flipX = true;
+            }
+            else
+            {
+                enemySpriteRenderer.flipX = false;
+            }
         }
 
         //if(rb.velocity.y > 0)

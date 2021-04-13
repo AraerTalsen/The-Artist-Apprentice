@@ -16,6 +16,9 @@ TagManager:
   - BarEnd
   - InkProofShoes
   - HealFountain
+  - BlueInk
+  - PaintersPalette
+  - MagicBrush
   layers:
   - Default
   - TransparentFX

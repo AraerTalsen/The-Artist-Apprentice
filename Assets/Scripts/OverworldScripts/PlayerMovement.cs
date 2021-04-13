@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject hitRange;
-    //public GameObject hitRange;
-    //public GameObject hitRange;
+
+    public Player playerScriptableObject;
 
     public int num;
     public Vector2 facing = Vector2.down;
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public static bool barrelQuestItemGiven = false;
 
     public GameObject questCompletepopup;
+    public GameObject itemPickedUpPopUp;
 
     public static int mostRecentQuestComplete = 0;
 
@@ -202,7 +203,36 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "InkProofShoes")
         {
             Destroy(other.gameObject);
+            ItemPickedUp.mostRecentItemPickedUp = 0;
+            itemPickedUpPopUp.SetActive(true);
             inkProofShoesOn = true;
+        }
+
+        if (other.gameObject.tag == "BlueInk")
+        {
+            Destroy(other.gameObject);
+            ItemPickedUp.mostRecentItemPickedUp = 1;
+            itemPickedUpPopUp.SetActive(true);
+            playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 5;
+        }
+
+        if (other.gameObject.tag == "PaintersPalette")
+        {
+            Destroy(other.gameObject);
+            ItemPickedUp.mostRecentItemPickedUp = 2;
+            itemPickedUpPopUp.SetActive(true);
+            playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 1;
+            playerScriptableObject.maxHP = playerScriptableObject.maxHP + 5;
+            playerScriptableObject.HitValue = playerScriptableObject.HitValue + 1;
+        }
+
+        if (other.gameObject.tag == "MagicBrush")
+        {
+            Destroy(other.gameObject);
+            ItemPickedUp.mostRecentItemPickedUp = 3;
+            itemPickedUpPopUp.SetActive(true);
+            playerScriptableObject.HitValue = playerScriptableObject.HitValue + 2;
+            //add increase to player damage here
         }
     }
 
