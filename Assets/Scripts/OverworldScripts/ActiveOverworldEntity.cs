@@ -35,7 +35,10 @@ public class ActiveOverworldEntity : MonoBehaviour
         {
             if (!entityInDimension[dim][type][j] || !w[j].on)
             {
-                if (!w[j].on) entityInDimension[dim][type][j] = false;
+                if (!w[j].on)
+                {
+                    entityInDimension[dim][type][j] = false;
+                }
                 w[j].on = false;
                 w[j].gameObject.SetActive(false);
             }

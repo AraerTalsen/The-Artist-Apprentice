@@ -87,7 +87,6 @@ public class UpdateHUD : MonoBehaviour
 
             eDisplay[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Name: " + e[i].eName;
             eDisplay[i].transform.GetChild(1).GetComponent<Slider>().maxValue = e[i].maxHP;
-            eSprites[i].sprite = e[i].enemySprite;
         }
     }
 

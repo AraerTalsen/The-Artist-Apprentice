@@ -18,5 +18,5 @@ public class Entity : ScriptableObject
     public bool isAlly = false;
     public StatusEffect[] statusEffect;
     public Moves[] moveList;
-    public GameObject body;
+    public GameObject baseBody, currentBody;
 }

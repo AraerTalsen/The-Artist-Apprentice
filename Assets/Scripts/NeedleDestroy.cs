@@ -19,6 +19,11 @@ public class NeedleDestroy : MonoBehaviour
 
     public Transform textSpawnArea;
 
+    public static Entity[] targets;
+    public static Moves m;
+    public static CombatSystem cs;
+    public static GameObject miniGameBody;
+
     private PlayerButtons pb;
     private int success = 0;
     private bool reseting = false;
@@ -33,6 +38,7 @@ public class NeedleDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool outOfBounds = transform.position.x <= -7.75f || transform.position.x >= 7.75f;
         if (canAct == true && Input.GetKeyDown(KeyCode.Space))
         {
             if (transform.position.x <= 2.2f && transform.position.x >= -2.2f && !(transform.position.x <= 0.5f && transform.position.x >= -0.5f))
@@ -71,6 +77,19 @@ public class NeedleDestroy : MonoBehaviour
                 StartCoroutine(PauseNeedle());
             }
         }
+
+        if(outOfBounds)
+        {
+            success = 0;
+            Debug.Log("Miss");
+
+            canAct = false;
+            miss = true;
+
+            NeedleMove.needleSpeed = 0f;
+            anim.Play("MissFade");
+            StartCoroutine(PauseNeedle());
+        }
     }
 
     public void Reset()
@@ -90,24 +109,29 @@ public class NeedleDestroy : MonoBehaviour
             //pb.SkillCheck(success);
         //else reseting = false;
 
-        //if (miss)
-        //{
-        //    Instantiate(missText, textSpawnArea);
-        //}
-        //else if (hit)
-        //{
-        //    Instantiate(hitText, textSpawnArea);
-        //}
-        //else if (crit)
-        //{
-        //    Instantiate(critText, textSpawnArea);
-        //}
+        if (miss)
+        {
+            //Instantiate(missText, textSpawnArea);
+            cs.state = 4;
+            cs.StateMachine();
+        }
+        else if (hit)
+        {
+            //Instantiate(hitText, textSpawnArea);
+            cs.UseMove(targets, m, 1);
+        }
+        else if (crit)
+        {
+            //Instantiate(critText, textSpawnArea);
+            cs.UseMove(targets, m, 2);
+        }
 
         crit = false;
         hit = false;
         miss = false;
 
         canAct = true;
+        Destroy(miniGameBody);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

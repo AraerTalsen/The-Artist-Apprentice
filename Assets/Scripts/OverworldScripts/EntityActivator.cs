@@ -33,7 +33,6 @@ public class EntityActivator : MonoBehaviour
 
     private void Alt()
     {
-        Debug.Log("this is running alt");
         List<Whackable>[] w =
             {
                 new List<Whackable>(),

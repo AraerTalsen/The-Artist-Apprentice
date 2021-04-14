@@ -29,7 +29,6 @@ public class CombatSystem : MonoBehaviour
     public GameObject[] aDisplay; //The panel that ally info is listed on. [Disable to make everything disabled.]
     public Image[] enemyAction;
     public Sprite[] actions;
-    public GameObject[] img;
 
     //Accessed classes
     private UpdateHUD uh;
@@ -42,6 +41,7 @@ public class CombatSystem : MonoBehaviour
     private int currentEntity = 0;
     public int state = 0;
     
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,19 +70,19 @@ public class CombatSystem : MonoBehaviour
             debugSession = true;
         }
         else debugSession = false;
+        livingEnemies = enemyParty.Length;
 
         //Attaches visual component of enemy to Scriptable Object
         for (int i = 0; i < enemyParty.Length; i++)
         {
-            GameObject g = Instantiate(enemyParty[i].body);
+            GameObject g = Instantiate(enemyParty[i].baseBody);
             g.transform.SetParent(eDisplay[i].transform);//Attaches visual component of enemy to Scriptable Object
             g.transform.localPosition = Vector2.zero;
             CombatAnim ca = g.GetComponent<CombatAnim>();
-            ca.movePoint = g.transform.parent.GetChild(2);
-            ca.retractPoint = g.transform.parent.GetChild(3);
+            ca.movePoint = g.transform.parent.GetChild(1);
+            ca.retractPoint = g.transform.parent.GetChild(2);
+            enemyParty[i].currentBody = g;
         }
-
-        livingEnemies = enemyParty.Length;
     }
 
     //Initiates ally party
@@ -92,24 +92,33 @@ public class CombatSystem : MonoBehaviour
         //the Combat scene, a debugging party is loaded
 
         List<string> allies = ListCreator.combatMinionsList;
+
         numMinions = debugSession ? 3 : allies.Count;//Check if debug session
 
         allyParty = new Entity[numMinions + 1];
         all = new Entity[numMinions + livingEnemies + 1];//Array to hold all entities on the field
         allyParty[0] = player1;
-        GameObject gameobject = Instantiate(allyParty[0].body);
+        GameObject gameobject = Instantiate(allyParty[0].baseBody);
         gameobject.transform.SetParent(aDisplay[0].transform);//Attaches visual component of enemy to Scriptable Object
         gameobject.transform.localPosition = Vector2.zero;
+        CombatAnim ca = gameobject.GetComponent<CombatAnim>();
+        ca.movePoint = gameobject.transform.parent.GetChild(1);
+        ca.retractPoint = gameobject.transform.parent.GetChild(2);
         all[0] = player1;
+        allyParty[0].currentBody = gameobject;
         for (int i = 1; i <= numMinions; i++)
         {
             //Loads either defaults or specified enemies depening on whether it is a debug session
             allyParty[i] = debugSession ? Instantiate(dA[i - 1]) : Instantiate((Entity)Resources.Load("Enemies/" + allies[i - 1], typeof(Object)));
             allyParty[i].isAlly = true;
-            GameObject g = Instantiate(allyParty[i].body);
+            GameObject g = Instantiate(allyParty[i].baseBody);
             g.transform.SetParent(aDisplay[i].transform);//Attaches visual component of enemy to Scriptable Object
             g.transform.localPosition = Vector2.zero;
+            ca = g.GetComponent<CombatAnim>();
+            ca.movePoint = g.transform.parent.GetChild(1);
+            ca.retractPoint = g.transform.parent.GetChild(2);
             all[i] = allyParty[i];
+            allyParty[i].currentBody = g;
         }
         ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).currentPaint;
     }
@@ -177,7 +186,7 @@ public class CombatSystem : MonoBehaviour
     private void ChooseMove()
     {
         if (!all[currentEntity].isDead)
-            pb.LoadMoves(all[currentEntity].moveList, all[currentEntity].isAlly, enemyParty, allyParty);
+            pb.LoadMoves(all[currentEntity].moveList, all[currentEntity].isAlly, enemyParty, allyParty, currentEntity);
         else
         {
             state = 4;
@@ -185,11 +194,26 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
-    public void UseMove(Entity[] targets, Moves m)
+    public void CheckForMiniGame(Entity[] targets, Moves m)
+    {
+        if (currentEntity == 0 && m.miniGame != null)
+        {
+            GameObject g = Instantiate(m.miniGame);
+
+            NeedleDestroy.targets = targets;
+            NeedleDestroy.m = m;
+            NeedleDestroy.cs = this;
+            NeedleDestroy.miniGameBody = g;
+        }
+        else
+            UseMove(targets, m, 1);
+    }
+
+    public void UseMove(Entity[] targets, Moves m, int mod)
     {
         for (int i = 0; i < m.targets.Length; i++)
         {
-            targets[i].currentHP += all[currentEntity].HitValue * m.val;
+            targets[i].currentHP += all[currentEntity].HitValue * m.val * mod;
 
             if (m.sf != null && targets[i].statusEffect[m.sf.activationPeriod] == null)
             {
@@ -197,12 +221,6 @@ public class CombatSystem : MonoBehaviour
                 targets[i].statusEffect[m.sf.activationPeriod] = sf;
                 sf.host = targets[i];
             }
-
-            //Activate minigame
-            /*if(m.miniGame != null)
-            {
-                GameObject g = Instantiate(m.miniGame);
-            }*/
 
             StartCoroutine(ColorBlink(m, targets[i]));
 
@@ -218,9 +236,9 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator TelegraphMove()
     {
-        img[currentEntity].GetComponent<CombatAnim>().AnimTime();
+        all[currentEntity].currentBody.GetComponent<CombatAnim>().AnimTime();
         yield return new WaitForSeconds(1f);
-        img[currentEntity].GetComponent<CombatAnim>().Retract();
+        all[currentEntity].currentBody.GetComponent<CombatAnim>().Retract();
         yield return new WaitForSeconds(1f);
         state = 3;//When multiple targets can happen, this has to move
         StateMachine();
@@ -228,7 +246,7 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator ColorBlink(Moves m, Entity target)
     {
-        GameObject body = target.body;
+        GameObject body = target.currentBody;
         SpriteRenderer bodyHue = body.GetComponent<SpriteRenderer>();
         bodyHue.color = m.effectColor;
         yield return new WaitForSeconds(1);

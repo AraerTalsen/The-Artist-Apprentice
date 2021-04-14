@@ -19,7 +19,9 @@ public class PlayerButtons : MonoBehaviour
     private CombatSystem cs;
 
     //Buttons for moves
-    public Button[] b;
+    public Vector2[] pos;
+    public Canvas c;
+    public int[] btnWhitelist;
     public Button[] tB;
     private Moves[] currentMoves;
     private int targetCount = 0, maxTargets = 0;
@@ -31,20 +33,30 @@ public class PlayerButtons : MonoBehaviour
         cs = FindObjectOfType<CombatSystem>();
     }
 
-    public void LoadMoves(Moves[] m, bool isAlly, Enemy[] enemies, Entity[] ally)
+    public void LoadMoves(Moves[] m, bool isAlly, Enemy[] enemies, Entity[] ally, int current)
     {
         e = enemies;
         a = ally;
         currentMoves = m;
 
-        if(isAlly)
+        if (isAlly)
         {
+            c.gameObject.SetActive(true);
+            c.transform.position = pos[current];
+
             for (int i = 0; i < m.Length; i++)
             {
-                Text t = b[i].GetComponentInChildren<Text>();
-                t.text = m[i].name;
-                t.name = i.ToString();
-                b[i].gameObject.SetActive(true);
+                if(currentMoves.Length > 2)
+                {
+                    c.transform.GetChild(i).gameObject.name = i.ToString();
+                    c.transform.GetChild(i).gameObject.SetActive(true);
+                }
+                else
+                {
+                    c.transform.GetChild(btnWhitelist[i]).gameObject.name = i.ToString();
+                    c.transform.GetChild(btnWhitelist[i]).gameObject.SetActive(true);
+                }
+                
             }
         }
         else
@@ -61,16 +73,17 @@ public class PlayerButtons : MonoBehaviour
                 targets[0] = e[r2];
             }
             
-            cs.UseMove(targets, currentMoves[r1]);
+            cs.UseMove(targets, currentMoves[r1], 1);
         }
     }
 
     public void SelectMove()
     {
-        int.TryParse(EventSystem.current.currentSelectedGameObject.transform.GetChild(0).name, out select);
+        int.TryParse(EventSystem.current.currentSelectedGameObject.name, out select);
 
         for (int i = 0; i < currentMoves.Length; i++)
-            b[i].gameObject.SetActive(false);
+            c.transform.GetChild(i).gameObject.SetActive(false);
+        c.gameObject.SetActive(false);
 
         int mod;
 
@@ -111,7 +124,7 @@ public class PlayerButtons : MonoBehaviour
             for (int i = 0; i < tB.Length; i++)
                 tB[i].gameObject.SetActive(false);
 
-            cs.UseMove(targets, currentMoves[select]);
+            cs.CheckForMiniGame(targets, currentMoves[select]);
         }
     }
 }

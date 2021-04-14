@@ -26,9 +26,11 @@ MonoBehaviour:
   - {fileID: 0}
   moveList:
   - {fileID: 11400000, guid: 9dca445721584214abb35fb64b9093fe, type: 2}
-  - {fileID: 11400000, guid: 68828fbf5076eb24597d9a5d612497b9, type: 2}
+  - {fileID: 11400000, guid: 37e0118d63fb0f245a488211dbb434ac, type: 2}
   - {fileID: 11400000, guid: 192aa2b46baf2614f8fcacb235144f1d, type: 2}
-  body: {fileID: 8234058665025830417, guid: e9fe3c6f6d6ad9a46aa0f88fbd53ff75, type: 3}
+  baseBody: {fileID: 8234058665025830417, guid: e9fe3c6f6d6ad9a46aa0f88fbd53ff75,
+    type: 3}
+  currentBody: {fileID: 0}
   playerPrefab: {fileID: 5394900565442393736, guid: c9041df8c1db04f41896cb762819526a,
     type: 3}
   maxMinions: 3
