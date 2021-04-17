@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
     public static bool displayPaintGain;
     public float displayPaintGainTimer;
 
+    public RelicUiSystemController showcaseRelics;
+    public List<Sprite> relicUIImages;
+
     void Start()
     {
         //if (!playerExists)
@@ -205,6 +208,11 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             ItemPickedUp.mostRecentItemPickedUp = 0;
             itemPickedUpPopUp.SetActive(true);
+            RelicUiSystemController.relicsCollectedCounter++;
+            showcaseRelics.relicNames.Add("Ink Proof Shoes");
+            showcaseRelics.relicDescriptions.Add("No longer move slow while in Ink Zones");
+            showcaseRelics.relicImages.Add(relicUIImages[0]);
+            showcaseRelics.UpdateRelicUI();
             inkProofShoesOn = true;
         }
 
@@ -214,6 +222,11 @@ public class PlayerMovement : MonoBehaviour
             ItemPickedUp.mostRecentItemPickedUp = 1;
             itemPickedUpPopUp.SetActive(true);
             playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 5;
+            RelicUiSystemController.relicsCollectedCounter++;
+            showcaseRelics.relicNames.Add("Blue Ink");
+            showcaseRelics.relicDescriptions.Add("Increases total paint mana during combat");
+            showcaseRelics.relicImages.Add(relicUIImages[1]);
+            showcaseRelics.UpdateRelicUI();
         }
 
         if (other.gameObject.tag == "PaintersPalette")
@@ -224,6 +237,11 @@ public class PlayerMovement : MonoBehaviour
             playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 1;
             playerScriptableObject.maxHP = playerScriptableObject.maxHP + 5;
             playerScriptableObject.HitValue = playerScriptableObject.HitValue + 1;
+            RelicUiSystemController.relicsCollectedCounter++;
+            showcaseRelics.relicNames.Add("Painter's Palette");
+            showcaseRelics.relicDescriptions.Add("Provides a slight increase to all stats");
+            showcaseRelics.relicImages.Add(relicUIImages[2]);
+            showcaseRelics.UpdateRelicUI();
         }
 
         if (other.gameObject.tag == "MagicBrush")
@@ -232,7 +250,11 @@ public class PlayerMovement : MonoBehaviour
             ItemPickedUp.mostRecentItemPickedUp = 3;
             itemPickedUpPopUp.SetActive(true);
             playerScriptableObject.HitValue = playerScriptableObject.HitValue + 2;
-            //add increase to player damage here
+            RelicUiSystemController.relicsCollectedCounter++;
+            showcaseRelics.relicNames.Add("Magic Brush");
+            showcaseRelics.relicDescriptions.Add("Increases player damage during combat");
+            showcaseRelics.relicImages.Add(relicUIImages[3]);
+            showcaseRelics.UpdateRelicUI();
         }
     }
 
