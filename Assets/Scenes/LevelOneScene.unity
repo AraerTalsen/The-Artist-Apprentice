@@ -6149,6 +6149,7 @@ GameObject:
   - component: {fileID: 194017615}
   - component: {fileID: 194017616}
   - component: {fileID: 194017617}
+  - component: {fileID: 194017618}
   m_Layer: 0
   m_Name: Overworld Manager
   m_TagString: Untagged
@@ -6217,6 +6218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: {fileID: 1521167168}
+--- !u!114 &194017618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194017614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3192429d40748e418c378e77293a034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relicUIGameObject: {fileID: 1630574408}
 --- !u!1001 &196420413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13155,7 +13169,7 @@ GameObject:
   - component: {fileID: 647077453}
   - component: {fileID: 647077455}
   - component: {fileID: 647077454}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicTextDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13673,7 +13687,7 @@ GameObject:
   - component: {fileID: 671642714}
   - component: {fileID: 671642716}
   - component: {fileID: 671642715}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15830,7 +15844,7 @@ GameObject:
   - component: {fileID: 776528638}
   - component: {fileID: 776528641}
   - component: {fileID: 776528640}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Relic3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17422,7 +17436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &861897996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17482,7 +17496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861897995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.95, y: -1.06, z: 0}
+  m_LocalPosition: {x: 2.25, y: 17.63, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 95414145}
@@ -20186,7 +20200,7 @@ GameObject:
   - component: {fileID: 1041794576}
   - component: {fileID: 1041794578}
   - component: {fileID: 1041794577}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicTextDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20504,7 +20518,7 @@ GameObject:
   - component: {fileID: 1051488765}
   - component: {fileID: 1051488767}
   - component: {fileID: 1051488766}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21368,7 +21382,7 @@ GameObject:
   - component: {fileID: 1083942060}
   - component: {fileID: 1083942062}
   - component: {fileID: 1083942063}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Relic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35938,7 +35952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1285668591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36025,7 +36039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285668590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.32, y: 1.31, z: 0}
+  m_LocalPosition: {x: 13.86, y: 1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 95414145}
@@ -41591,7 +41605,7 @@ GameObject:
   - component: {fileID: 1586945845}
   - component: {fileID: 1586945847}
   - component: {fileID: 1586945846}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41670,7 +41684,7 @@ GameObject:
   - component: {fileID: 1587054491}
   - component: {fileID: 1587054493}
   - component: {fileID: 1587054492}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicTextDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41747,7 +41761,7 @@ GameObject:
   - component: {fileID: 1587859497}
   - component: {fileID: 1587859499}
   - component: {fileID: 1587859498}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42560,7 +42574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630574409}
   - component: {fileID: 1630574410}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43988,7 +44002,7 @@ PrefabInstance:
     - target: {fileID: 7712543982486412579, guid: 9f61488c01a104df19117835d1efcba3,
         type: 3}
       propertyPath: minMoveX
-      value: -9
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7712543982486412579, guid: 9f61488c01a104df19117835d1efcba3,
         type: 3}
@@ -108972,7 +108986,7 @@ GameObject:
   - component: {fileID: 1860075183}
   - component: {fileID: 1860075185}
   - component: {fileID: 1860075184}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109579,7 +109593,7 @@ GameObject:
   - component: {fileID: 1913395278}
   - component: {fileID: 1913395280}
   - component: {fileID: 1913395279}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109664,7 +109678,7 @@ GameObject:
   - component: {fileID: 1915359106}
   - component: {fileID: 1915359108}
   - component: {fileID: 1915359107}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicTextDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112535,7 +112549,7 @@ GameObject:
   - component: {fileID: 1930815031}
   - component: {fileID: 1930815033}
   - component: {fileID: 1930815032}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112778,7 +112792,7 @@ GameObject:
   - component: {fileID: 1950360756}
   - component: {fileID: 1950360759}
   - component: {fileID: 1950360758}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Relic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114277,7 +114291,7 @@ GameObject:
   - component: {fileID: 2066814640}
   - component: {fileID: 2066814642}
   - component: {fileID: 2066814641}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RelicDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114932,7 +114946,7 @@ GameObject:
   - component: {fileID: 2110398868}
   - component: {fileID: 2110398871}
   - component: {fileID: 2110398870}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Relic4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
