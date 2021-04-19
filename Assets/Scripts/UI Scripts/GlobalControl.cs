@@ -11,6 +11,8 @@ public class GlobalControl : MonoBehaviour
     public List<Sprite> itemImages;
     public List<GameObject> itemHolder;
     public List<string> combatMinionsList;
+    public static bool relicOneCollected, relicTwoCollected, relicThreeCollected, relicFourCollected, relicFiveCollected, relicSixCollected;
+    public static bool inkProofShoesOn = false;
 
     void Awake()
     {

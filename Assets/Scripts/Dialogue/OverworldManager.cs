@@ -22,11 +22,6 @@ public class OverworldManager : MonoBehaviour
             instance = this;
         }
 
-        if (PlayerMovement.barrelQuestItemGiven == true || PlayerMovement.barrelQuestItemPickedUp == true)
-        {
-            questBarrel.SetActive(false);
-        }
-
     }
 
     // Update is called once per frame
@@ -37,12 +32,36 @@ public class OverworldManager : MonoBehaviour
             if (inkPortals[i].activeSelf == false)
             {
                 inkTiles[i].SetActive(false);
-                lootRewards[i].SetActive(true);
-                if(overWorldEnemies[i].activeSelf == true)
+
+                //I am so sorry it's so ugly but brain is mush
+                if(GlobalControl.relicOneCollected == false && inkPortals[0].activeSelf == false)
+                {
+                    lootRewards[0].SetActive(true);
+                }
+                if (GlobalControl.relicTwoCollected == false && inkPortals[1].activeSelf == false)
+                {
+                    lootRewards[1].SetActive(true);
+                }
+                if (GlobalControl.relicThreeCollected == false && inkPortals[2].activeSelf == false)
+                {
+                    lootRewards[2].SetActive(true);
+                }
+                if (GlobalControl.relicFourCollected == false && inkPortals[3].activeSelf == false)
+                {
+                    lootRewards[3].SetActive(true);
+                }
+
+                //lootRewards[i].SetActive(true);
+                if (overWorldEnemies[i].activeSelf == true)
                 {
                     overWorldEnemies[i].SetActive(false);
                 } 
             }
+        }
+
+        if (PlayerMovement.barrelQuestItemGiven == true || PlayerMovement.barrelQuestItemPickedUp == true)
+        {
+            questBarrel.SetActive(false);
         }
     }
 }

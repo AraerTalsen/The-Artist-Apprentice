@@ -42,15 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
     public static int mostRecentQuestComplete = 0;
 
-    public bool inkProofShoesOn = false;
-
     public GameObject ObjectWhacked;
 
     public static bool displayPaintGain;
     public float displayPaintGainTimer;
-
-    public RelicUiSystemController showcaseRelics;
-    public List<Sprite> relicUIImages;
 
     void Start()
     {
@@ -78,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         pauseGame = false;
 
         speedStore = playerSpeed;
-        inkProofShoesOn = false;
         displayPaintGain = false;
         displayPaintGainTimer = 0;
 }
@@ -164,6 +158,12 @@ public class PlayerMovement : MonoBehaviour
             anim.enabled = true;
             playerSpeed = speedStore;
         }
+
+        if (GlobalControl.inkProofShoesOn == true) {
+            slowedSpeed = 5f;
+        }
+
+        //Debug.Log(GlobalControl.inkProofShoesOn);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -205,15 +205,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "InkProofShoes")
         {
+            
             Destroy(other.gameObject);
             ItemPickedUp.mostRecentItemPickedUp = 0;
             itemPickedUpPopUp.SetActive(true);
-            RelicUiSystemController.relicsCollectedCounter++;
-            showcaseRelics.relicNames.Add("Ink Proof Shoes");
-            showcaseRelics.relicDescriptions.Add("No longer move slow while in Ink Zones");
-            showcaseRelics.relicImages.Add(relicUIImages[0]);
-            showcaseRelics.UpdateRelicUI();
-            inkProofShoesOn = true;
+            GlobalControl.relicOneCollected = true;
+            GlobalControl.inkProofShoesOn = true;
         }
 
         if (other.gameObject.tag == "BlueInk")
@@ -221,12 +218,8 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             ItemPickedUp.mostRecentItemPickedUp = 1;
             itemPickedUpPopUp.SetActive(true);
+            GlobalControl.relicTwoCollected = true;
             playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 5;
-            RelicUiSystemController.relicsCollectedCounter++;
-            showcaseRelics.relicNames.Add("Blue Ink");
-            showcaseRelics.relicDescriptions.Add("Increases total paint mana during combat");
-            showcaseRelics.relicImages.Add(relicUIImages[1]);
-            showcaseRelics.UpdateRelicUI();
         }
 
         if (other.gameObject.tag == "PaintersPalette")
@@ -237,11 +230,7 @@ public class PlayerMovement : MonoBehaviour
             playerScriptableObject.maxPaint = playerScriptableObject.maxPaint + 1;
             playerScriptableObject.maxHP = playerScriptableObject.maxHP + 5;
             playerScriptableObject.HitValue = playerScriptableObject.HitValue + 1;
-            RelicUiSystemController.relicsCollectedCounter++;
-            showcaseRelics.relicNames.Add("Painter's Palette");
-            showcaseRelics.relicDescriptions.Add("Provides a slight increase to all stats");
-            showcaseRelics.relicImages.Add(relicUIImages[2]);
-            showcaseRelics.UpdateRelicUI();
+            GlobalControl.relicThreeCollected = true;
         }
 
         if (other.gameObject.tag == "MagicBrush")
@@ -250,11 +239,7 @@ public class PlayerMovement : MonoBehaviour
             ItemPickedUp.mostRecentItemPickedUp = 3;
             itemPickedUpPopUp.SetActive(true);
             playerScriptableObject.HitValue = playerScriptableObject.HitValue + 2;
-            RelicUiSystemController.relicsCollectedCounter++;
-            showcaseRelics.relicNames.Add("Magic Brush");
-            showcaseRelics.relicDescriptions.Add("Increases player damage during combat");
-            showcaseRelics.relicImages.Add(relicUIImages[3]);
-            showcaseRelics.UpdateRelicUI();
+            GlobalControl.relicFourCollected = true;
         }
     }
 
@@ -262,8 +247,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "InkTiles")
         {
-            if(inkProofShoesOn == false)
-            speedStore = slowedSpeed;
+            if(GlobalControl.inkProofShoesOn == false)
+            {
+                speedStore = 3f;
+            }
+            else
+            {
+                slowedSpeed = 5f;
+                speedStore = 5f;
+            }
+            
         }
     }
 
@@ -272,16 +265,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "InkTiles")
         {
             speedStore = 5f;
-        }
-
-    }
-
-    public void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "InkTiles")
-        {
-            if (inkProofShoesOn == false)
-                speedStore = slowedSpeed;
         }
 
     }
@@ -342,12 +325,5 @@ public class PlayerMovement : MonoBehaviour
         ListCreator.runInventoryUpdate = true;
         UpdateMinionInventoryFunction.InsertSeanMinion();
     }
-
-    public void showPaintGainOnWhack() {
-
-
-    }
-
-       
-
+   
 }
