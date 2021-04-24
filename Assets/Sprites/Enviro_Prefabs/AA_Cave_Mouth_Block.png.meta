@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: fa88debaf4ea55840b68d19679305ca3
+guid: 9b5b5aa6771724f4eb74612ac9dbddbc
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 495847982578849749
-    second: AA_Fountain_0
-  - first:
-      213: 600084976803212746
-    second: AA_Fountain_1
-  - first:
-      213: 3223889152944469174
-    second: AA_Fountain_2
-  - first:
-      213: -5019630572788910273
-    second: AA_Fountain_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,91 +101,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: AA_Fountain_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 105
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d7d430fc1b91e600800000000000000
-      internalID: 495847982578849749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AA_Fountain_1
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 105
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acd67656b1ee35800800000000000000
-      internalID: 600084976803212746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AA_Fountain_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 9
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b47d7c8a1e8dbc20800000000000000
-      internalID: 3223889152944469174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AA_Fountain_3
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 9
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f37f935d690b65ab0800000000000000
-      internalID: -5019630572788910273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
