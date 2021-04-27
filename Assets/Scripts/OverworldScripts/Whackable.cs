@@ -15,14 +15,18 @@ public class Whackable : MonoBehaviour
         if(whackable)
         {
             on = false;
-            if (playerPaint.currentPaint < playerPaint.maxPaint)
+            if (this.gameObject.tag == "ManaFlower")
             {
-                PlayerMovement.displayPaintGain = true;
-                Debug.Log(PlayerMovement.displayPaintGain);
-                playerPaint.currentPaint++;
+                if (playerPaint.currentPaint < playerPaint.maxPaint)
+                {
+                    PlayerMovement.displayPaintGain = true;
+                    Debug.Log(PlayerMovement.displayPaintGain);
+                    playerPaint.currentPaint++;
+                }
+                ActiveOverworldEntity.entityInDimension[1][type][id] = false;
+                gameObject.SetActive(false);
             }
-            ActiveOverworldEntity.entityInDimension[1][type][id] = false;
-            gameObject.SetActive(false);
+
         }
     }
 

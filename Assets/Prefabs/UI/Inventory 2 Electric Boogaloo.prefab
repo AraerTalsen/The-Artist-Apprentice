@@ -2724,8 +2724,7 @@ MonoBehaviour:
     type: 3}
   relicDescriptionTextBox: {fileID: 7868639117337237820}
   relicDescriptionImage: {fileID: 3685481456699595766}
-  relicDescription: This mystical paint increases your total paint, allowing you
-    to use more paint during combat!
+  relicDescription: Grants a permanent increase to total paint
   relicNotDiscoveredDescription: ??????????????????????????????
   buttonImage: {fileID: 1072152180970632163}
 --- !u!1 &3434749183642905094
@@ -3324,8 +3323,7 @@ MonoBehaviour:
     type: 3}
   relicDescriptionTextBox: {fileID: 7868639117337237820}
   relicDescriptionImage: {fileID: 3685481456699595766}
-  relicDescription: An artist's best friend. This pallette provides a slight increase
-    to all your stats!
+  relicDescription: Grants a permanent increase to all attributes
   relicNotDiscoveredDescription: ??????????????????????????????
   buttonImage: {fileID: 5263715475264101111}
 --- !u!1 &3773268000312811239
@@ -4105,8 +4103,7 @@ MonoBehaviour:
     type: 3}
   relicDescriptionTextBox: {fileID: 7868639117337237820}
   relicDescriptionImage: {fileID: 3685481456699595766}
-  relicDescription: These magic shoes prevent you from being slowed down by that
-    pesky ink!
+  relicDescription: Can no longer be slowed by Ink
   relicNotDiscoveredDescription: ??????????????????????????????
   buttonImage: {fileID: 5179903316841632268}
 --- !u!1 &6757585985309669653
@@ -5380,7 +5377,6 @@ MonoBehaviour:
     type: 3}
   relicDescriptionTextBox: {fileID: 7868639117337237820}
   relicDescriptionImage: {fileID: 3685481456699595766}
-  relicDescription: This powerful paint brush packs a punch. This relic increases
-    the damage that you deal during combat.
+  relicDescription: Grants a permanent damage bonus
   relicNotDiscoveredDescription: ??????????????????????????????
   buttonImage: {fileID: 8536623712938044853}

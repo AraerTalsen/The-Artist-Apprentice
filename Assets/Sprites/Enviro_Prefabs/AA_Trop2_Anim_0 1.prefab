@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4589123444677428614}
   m_Layer: 0
   m_Name: AA_Trop2_Anim_0 1
-  m_TagString: Untagged
+  m_TagString: ManaFlower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,3 +140,4 @@ MonoBehaviour:
   on: 1
   whackable: 1
   canvas: {fileID: 0}
+  playerPaint: {fileID: 11400000, guid: 55754be53267745ac8f3dcc84747d04a, type: 2}
