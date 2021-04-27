@@ -20,6 +20,11 @@ TagManager:
   - PaintersPalette
   - MagicBrush
   - ManaFlower
+  - CaveDoorLow
+  - CaveDoorMiddle
+  - CaveDoorHigh
+  - InsideOfCaveLeftDoor
+  - InsideOfCaveRightDoor
   layers:
   - Default
   - TransparentFX

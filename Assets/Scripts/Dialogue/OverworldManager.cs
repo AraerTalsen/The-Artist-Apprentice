@@ -10,6 +10,8 @@ public class OverworldManager : MonoBehaviour
     public List<GameObject> inkTiles;
     public List<GameObject> lootRewards;
     public List<GameObject> overWorldEnemies;
+    public List<GameObject> caveDoorBlockers;
+    public List<GameObject> caveEntraceColliders;
 
     public Transform Player;
 
@@ -57,6 +59,12 @@ public class OverworldManager : MonoBehaviour
                     overWorldEnemies[i].SetActive(false);
                 } 
             }
+        }
+
+        if(inkPortals[3].activeSelf == false)
+        {
+            caveDoorBlockers[0].SetActive(false);
+            caveEntraceColliders[0].SetActive(true);
         }
 
         if (PlayerMovement.barrelQuestItemGiven == true || PlayerMovement.barrelQuestItemPickedUp == true)

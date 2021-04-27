@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     public static bool displayPaintGain;
     public float displayPaintGainTimer;
 
+    public bool inCave;
+
     void Start()
     {
         //if (!playerExists)
@@ -240,6 +242,30 @@ public class PlayerMovement : MonoBehaviour
             itemPickedUpPopUp.SetActive(true);
             playerScriptableObject.HitValue = playerScriptableObject.HitValue + 2;
             GlobalControl.relicFourCollected = true;
+        }
+
+        if(other.gameObject.tag == "CaveDoorLow")
+        {
+            this.transform.position = new Vector3(73.5f, 70.75f, 0);
+            inCave = true;
+        }
+
+        if (other.gameObject.tag == "CaveDoorMiddle")
+        {
+            this.transform.position = new Vector3(121.5f, 63, 0);
+            inCave = true;
+        }
+
+        if (other.gameObject.tag == "InsideOfCaveRightDoor")
+        {
+            this.transform.position = new Vector3(21.5f, 62.75f, 0);
+            inCave = false;
+        }
+
+        if (other.gameObject.tag == "InsideOfCaveLeftDoor")
+        {
+            this.transform.position = new Vector3(-10.5f, 40.5f, 0);
+            inCave = false;
         }
     }
 
