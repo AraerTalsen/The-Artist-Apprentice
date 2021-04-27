@@ -13,6 +13,7 @@ public class GlobalControl : MonoBehaviour
     public List<string> combatMinionsList;
     public static bool relicOneCollected, relicTwoCollected, relicThreeCollected, relicFourCollected, relicFiveCollected, relicSixCollected;
     public static bool inkProofShoesOn = false;
+    public static int numDrinksFromFountain;
 
     void Awake()
     {

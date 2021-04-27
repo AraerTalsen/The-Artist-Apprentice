@@ -364532,6 +364532,12 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 55754be53267745ac8f3dcc84747d04a, type: 2}
   overworldInteractableTrigger: {fileID: 1656070179}
   triggerPointer: {fileID: 1273676497}
+  fountainSpriteRenderer: {fileID: 1656070180}
+  fountainSpriteStates:
+  - {fileID: 5280829106668565592, guid: fe77675209f286f488f3bed028cbf714, type: 3}
+  - {fileID: -2465298379780915945, guid: fe77675209f286f488f3bed028cbf714, type: 3}
+  - {fileID: -5728811282303964708, guid: fe77675209f286f488f3bed028cbf714, type: 3}
+  - {fileID: 3720969508867582241, guid: fe77675209f286f488f3bed028cbf714, type: 3}
 --- !u!114 &1735419008
 MonoBehaviour:
   m_ObjectHideFlags: 0
