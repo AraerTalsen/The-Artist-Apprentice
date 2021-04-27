@@ -14,6 +14,7 @@ public class DialogueTriggerFountainNPC : Interactable
         if (timesTalked == 0)
         {
             DialogueManager.instance.EnqueueDialogue(DB1);
+            timesTalked = 1;
         }
         else
         {

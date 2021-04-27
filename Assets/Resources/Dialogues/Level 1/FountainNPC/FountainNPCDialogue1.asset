@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05875697436d4c6ba294074e4b9a851, type: 3}
+  m_Name: FountainNPCDialogue1
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - myVoice: {fileID: 0}
+    myText: Howdy! You don't look like yer from 'round these parts, you lookin' for
+      the Master?
+  - myVoice: {fileID: 0}
+    myText: I ain't seen him since the last full moon 'bout three weeks back. It's
+      been a real pig sty 'round here since.
+  - myVoice: {fileID: 0}
+    myText: Anywho, when the Master was visitin', he used to drink from that there
+      fountain to stay healthy. It's magic, you see?
+  - myVoice: {fileID: 0}
+    myText: Drinkin' from that there fountain can heal you right up, but too much
+      and you'll catch somethin fierce.

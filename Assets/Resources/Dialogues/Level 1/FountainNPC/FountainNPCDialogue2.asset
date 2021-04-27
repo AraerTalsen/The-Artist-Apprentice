@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b05875697436d4c6ba294074e4b9a851, type: 3}
-  m_Name: IntroToArea
+  m_Name: FountainNPCDialogue2
   m_EditorClassIdentifier: 
   dialogueInfo:
   - myVoice: {fileID: 0}
-    myText: What's this? A note left behind by the Master??
-  - myVoice: {fileID: 0}
-    myText: '"To do: Clean up the painting, help out the villagers, go fishing"'
+    myText: Be careful with that fountain, ya'hear? It can help in a pinch, but too
+      much will leave ya high and dry.

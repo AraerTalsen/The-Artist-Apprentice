@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b05875697436d4c6ba294074e4b9a851, type: 3}
-  m_Name: IntroToArea
+  m_Name: IntroToPaintFlowers
   m_EditorClassIdentifier: 
   dialogueInfo:
   - myVoice: {fileID: 0}
-    myText: What's this? A note left behind by the Master??
+    myText: Another note from the Master...
   - myVoice: {fileID: 0}
-    myText: '"To do: Clean up the painting, help out the villagers, go fishing"'
+    myText: '"Note to self: When running low on paint, whack these flowers to get
+      some back"'
