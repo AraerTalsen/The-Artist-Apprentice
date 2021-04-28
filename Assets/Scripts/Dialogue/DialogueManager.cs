@@ -96,8 +96,8 @@ public class DialogueManager : MonoBehaviour
         //    {
         //        optionButtons[i].SetActive(true);
         //        optionButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = dialogueOptions.optionsInfo[i].buttonText;
-        //        UnityEventHandler myEventHandler = optionButtons[i].GetComponent<UnityEventHandler>();
-        //        myEventHandler.eventHandler = dialogueOptions.optionsInfo[i].myEvent;
+        //UnityEventHandler myEventHandler = GetComponent<UnityEventHandler>();
+        //myEventHandler.eventHandler = dialogueOptions.optionsInfo[i].myEvent;
         //        if(dialogueOptions.optionsInfo[i].nextDialogue != null)
         //        {
         //            myEventHandler.myDialogue = dialogueOptions.optionsInfo[i].nextDialogue;
@@ -113,7 +113,7 @@ public class DialogueManager : MonoBehaviour
         //    isDialogueOption = false;
         //}
 
-        foreach(DialogueBase.Info info in db.dialogueInfo)
+        foreach (DialogueBase.Info info in db.dialogueInfo)
         {
             dialogueInfo.Enqueue(info);
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogues")]
 public class DialogueBase : ScriptableObject
@@ -16,6 +17,8 @@ public class DialogueBase : ScriptableObject
         //public Font myFont;
         [TextArea(4, 8)]
         public string myText;
+
+        public UnityEvent myEvent;
     }
 
     [Header("Insert Dialogue Infornmation Below")]

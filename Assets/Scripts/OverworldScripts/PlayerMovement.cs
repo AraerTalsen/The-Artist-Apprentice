@@ -93,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
                 facing = Vector2.up;
                 body.velocity = new Vector2(0, playerSpeed);
                 anim.SetInteger("Direction", 1); //animation change
+
+                HUDDown.HubOpen = false;
             }
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
@@ -100,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
                 facing = Vector2.down;
                 body.velocity = new Vector2(0, -playerSpeed);
                 anim.SetInteger("Direction", 3);
+
+                HUDDown.HubOpen = false;
             }
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
@@ -108,6 +112,8 @@ public class PlayerMovement : MonoBehaviour
                 body.velocity = new Vector2(-playerSpeed, 0);
                 anim.SetInteger("Direction", 2);
                 transform.localScale = new Vector3(-1, 1, 1); //flip the sprite
+
+                HUDDown.HubOpen = false;
             }
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
@@ -116,6 +122,8 @@ public class PlayerMovement : MonoBehaviour
                 body.velocity = new Vector2(playerSpeed, 0);
                 anim.SetInteger("Direction", 2);
                 transform.localScale = new Vector3(1, 1, 1); //flip the sprite
+
+                HUDDown.HubOpen = false;
             }
 
             if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
@@ -123,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
                 //No Input
                 body.velocity = new Vector2(0, 0);
                 anim.SetInteger("Direction", 0);
+
+                HUDDown.HubOpen = true;
             }
 
             Whack(); //Check if player wants to whack. If so, whack.
@@ -141,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (DialogueManager.inDialogue)
         {
+            HUDDown.HubOpen = false;
             body.velocity = new Vector2(0, 0);
 
             if (Input.GetKeyUp(KeyCode.Space))
@@ -151,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (pauseGame)
         {
+            HUDDown.HubOpen = false;
+
             body.velocity = new Vector2(0,0);
             playerSpeed = 0;
             anim.enabled = false;

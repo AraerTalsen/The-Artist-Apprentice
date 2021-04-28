@@ -17,7 +17,7 @@ public class ChangeScenes : MonoBehaviour
 
     public void LoadCastle()
     {
-        SceneManager.LoadScene("OverWorldTest");
+        SceneManager.LoadScene(2);
     }
 
     public void LoadCredits()
