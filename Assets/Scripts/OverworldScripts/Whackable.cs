@@ -21,7 +21,14 @@ public class Whackable : MonoBehaviour
                 {
                     PlayerMovement.displayPaintGain = true;
                     Debug.Log(PlayerMovement.displayPaintGain);
-                    playerPaint.currentPaint++;
+                    if(playerPaint.currentPaint +3 < playerPaint.maxPaint)
+                    {
+                        playerPaint.currentPaint = playerPaint.currentPaint + 3;
+                    } else
+                    {
+                        playerPaint.currentPaint = playerPaint.maxPaint;
+                    }
+                    
                 }
                 ActiveOverworldEntity.entityInDimension[1][type][id] = false;
                 gameObject.SetActive(false);

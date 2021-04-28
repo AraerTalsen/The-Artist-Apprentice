@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: +1
+  m_Text: +3
 --- !u!1 &4008936098333721728
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 170494819}
   - component: {fileID: 1909957373736462683}
   - component: {fileID: 170494824}
+  - component: {fileID: 382172035}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -442,15 +443,9 @@ MonoBehaviour:
   DM: {fileID: 0}
   questCompletepopup: {fileID: 0}
   itemPickedUpPopUp: {fileID: 0}
-  inkProofShoesOn: 0
   ObjectWhacked: {fileID: 5148270744179948286}
   displayPaintGainTimer: 0
-  showcaseRelics: {fileID: 0}
-  relicUIImages:
-  - {fileID: 21300000, guid: c4c548a339b4d41a590928c0c98934a7, type: 3}
-  - {fileID: -4631656226978918827, guid: 811d322b44e5b554eb294201d63f16a2, type: 3}
-  - {fileID: -2702682182852720746, guid: 811d322b44e5b554eb294201d63f16a2, type: 3}
-  - {fileID: 5297805358514110283, guid: 811d322b44e5b554eb294201d63f16a2, type: 3}
+  inCave: 0
 --- !u!114 &1909957373736462683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,3 +478,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &382172035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394900565442393736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf641cba5b741947b59b2fae24a13bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -1
+  runOnlyOnce: 0
