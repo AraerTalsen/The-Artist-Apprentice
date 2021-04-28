@@ -10,22 +10,22 @@ public class UISounds : MonoBehaviour, IPointerEnterHandler
     //Button Select Sounds (OnCLick)
     public void SelectSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/UI Select");
+        FMODUnity.RuntimeManager.PlayOneShot(GameAudio.Instance.UI_Select);
     }
 
     //On Button Hover
     public void OnPointerEnter(PointerEventData eventData)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/UI Hover");
+        FMODUnity.RuntimeManager.PlayOneShot(GameAudio.Instance.UI_Hover);
     }
 
     public void RunButtonSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/Run");
+        FMODUnity.RuntimeManager.PlayOneShot(GameAudio.Instance.Run);
     }
 
     public void HealSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/SFX/Heal");
+        FMODUnity.RuntimeManager.PlayOneShot(GameAudio.Instance.Heal);
     }
 }
