@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: Casey
   Description: is cool
-  maxHP: 35
-  currentHP: 23
-  baseHitValue: 5
+  maxHP: 30
+  currentHP: 30
+  baseHitValue: 10
   HitValue: 10
   targeted: 0
   isDead: 0
@@ -34,5 +34,5 @@ MonoBehaviour:
   playerPrefab: {fileID: 5394900565442393736, guid: c9041df8c1db04f41896cb762819526a,
     type: 3}
   maxMinions: 3
-  currentPaint: -5
-  maxPaint: 16
+  currentPaint: 10
+  maxPaint: 10
