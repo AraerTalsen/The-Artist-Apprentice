@@ -801,7 +801,7 @@ RectTransform:
   - {fileID: 2037054100}
   - {fileID: 671775785}
   m_Father: {fileID: 329695013}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -214465,8 +214465,8 @@ RectTransform:
   m_Children:
   - {fileID: 1392719766}
   - {fileID: 1521167167}
-  - {fileID: 841274166}
   - {fileID: 18468064}
+  - {fileID: 841274166}
   - {fileID: 1735419006}
   - {fileID: 1784750611}
   m_Father: {fileID: 0}
@@ -245924,10 +245924,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whackPack:
   - {fileID: 1665380092}
-  - {fileID: 1218991914}
-  - {fileID: 2085718587}
-  - {fileID: 664320455}
   - {fileID: 2049605541}
+  - {fileID: 664320455}
+  - {fileID: 1668361306}
+  - {fileID: 2131128221}
 --- !u!1 &723618047
 GameObject:
   m_ObjectHideFlags: 0
@@ -249588,7 +249588,7 @@ PrefabInstance:
     - target: {fileID: 7863152105415814341, guid: cc671826b89c548fcbfdbab3c23c8ac4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7863152105415814341, guid: cc671826b89c548fcbfdbab3c23c8ac4,
         type: 3}

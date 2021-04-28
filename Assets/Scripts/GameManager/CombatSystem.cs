@@ -40,6 +40,7 @@ public class CombatSystem : MonoBehaviour
     private bool debugSession = false;
     private int currentEntity = 0;
     public int state = 0;
+    public static bool isPortal = false;
     
 
 
@@ -200,10 +201,10 @@ public class CombatSystem : MonoBehaviour
         {
             GameObject g = Instantiate(m.miniGame);
 
-            NeedleDestroy.targets = targets;
-            NeedleDestroy.m = m;
-            NeedleDestroy.cs = this;
-            NeedleDestroy.miniGameBody = g;
+            MinigameData.targets = targets;
+            MinigameData.m = m;
+            MinigameData.cs = this;
+            MinigameData.miniGameBody = g;
         }
         else
             UseMove(targets, m, 1);
@@ -247,6 +248,7 @@ public class CombatSystem : MonoBehaviour
     private IEnumerator ColorBlink(Moves m, Entity target)
     {
         GameObject body = target.currentBody;
+        m.PlaySFX();
         SpriteRenderer bodyHue = body.GetComponent<SpriteRenderer>();
         bodyHue.color = m.effectColor;
         yield return new WaitForSeconds(1);
@@ -358,7 +360,11 @@ public class CombatSystem : MonoBehaviour
             if(!debugSession)
             {
                 ActiveOverworldEntity.entityInDimension[1][0][id] = false;
-                ActiveOverworldEntity.entityCount[1]--;
+                if(isPortal)
+                {
+                    ActiveOverworldEntity.entityCount[1]--;
+                    isPortal = false;
+                }
             }
             else ActiveOverworldEntity.dim = 1;
 

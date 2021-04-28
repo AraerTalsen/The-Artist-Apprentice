@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   val: 0
   cost: 0
+  sf: {fileID: 0}
   targets: []
   isFriendlyTarget: 0
   moveType: {fileID: 0}
-  cs: {fileID: 0}
+  effectColor: {r: 0, g: 0, b: 0, a: 0}
+  miniGame: {fileID: 0}
+  sfx: 

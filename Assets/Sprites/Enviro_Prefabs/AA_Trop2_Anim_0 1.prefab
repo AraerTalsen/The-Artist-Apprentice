@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   c: {r: 0, g: 0, b: 0, a: 0}
-  type: 0
+  type: 1
   id: 0
   minion: 0
   on: 1

@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   val: 1
   cost: 1
+  sf: {fileID: 0}
   targets:
   - {fileID: 0}
   isFriendlyTarget: 1
   moveType: {fileID: 21300000, guid: 3bf055ccf9296164ba6aafcc926c24e2, type: 3}
   effectColor: {r: 0, g: 0.2386322, b: 1, a: 1}
+  miniGame: {fileID: 0}
+  sfx: Heal

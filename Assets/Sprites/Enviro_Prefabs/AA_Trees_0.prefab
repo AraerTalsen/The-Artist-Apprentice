@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5014850631037812646}
   - component: {fileID: 4063452738723680140}
   - component: {fileID: 1545867584}
+  - component: {fileID: 2263209931389134111}
   m_Layer: 0
   m_Name: AA_Trees_0
   m_TagString: Untagged
@@ -126,3 +127,23 @@ MonoBehaviour:
   sortingOrderBase: 5000
   offset: 0
   runOnlyOnce: 0
+--- !u!114 &2263209931389134111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055422763797532825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d88545828ce6841ac0ce149c68436a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {r: 0, g: 0, b: 0, a: 0}
+  type: 1
+  id: 0
+  minion: 0
+  on: 1
+  whackable: 1
+  canvas: {fileID: 0}
+  playerPaint: {fileID: 0}

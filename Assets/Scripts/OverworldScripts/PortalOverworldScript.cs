@@ -38,6 +38,7 @@ public class PortalOverworldScript : MonoBehaviour
         {
             PlayerMovement.pauseGame = true;
             CombatSystem.enemyParty = party;
+            CombatSystem.isPortal = true;
             //LocationRememberer.awokenDim[FindObjectOfType<LocationLoader>().num] = true;
             LoadNextLevel();
         }

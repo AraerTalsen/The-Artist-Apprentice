@@ -1343,6 +1343,7 @@ GameObject:
   - component: {fileID: 210251376}
   - component: {fileID: 210251375}
   - component: {fileID: 210251377}
+  - component: {fileID: 210251378}
   m_Layer: 5
   m_Name: Attack
   m_TagString: Untagged
@@ -1452,8 +1453,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220404209}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 210251378}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
         m_MethodName: SelectSound
         m_Mode: 1
         m_Arguments:
@@ -1476,6 +1477,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &210251378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210251373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a072b28c43d7e49689723a2a4f77f6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &217522428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,14 +1799,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d52bb6959f67f5940a911bbbd1d9cf44, type: 3}
   - {fileID: 21300000, guid: 9568db36e87a2ed448bf0105afedd704, type: 3}
   - {fileID: 21300000, guid: a4f581bde63f7974d90697636ccf9ad7, type: 3}
-  img:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   state: 0
 --- !u!114 &224765528
 MonoBehaviour:
@@ -7857,6 +7862,7 @@ GameObject:
   - component: {fileID: 1079144611}
   - component: {fileID: 1079144610}
   - component: {fileID: 1079144612}
+  - component: {fileID: 1079144613}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -7966,8 +7972,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220404209}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1079144613}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
         m_MethodName: SelectSound
         m_Mode: 1
         m_Arguments:
@@ -7990,6 +7996,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1079144613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079144608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a072b28c43d7e49689723a2a4f77f6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083142890
 GameObject:
   m_ObjectHideFlags: 0
@@ -14611,6 +14629,7 @@ GameObject:
   - component: {fileID: 1286562064}
   - component: {fileID: 1286562063}
   - component: {fileID: 1286562065}
+  - component: {fileID: 1286562066}
   m_Layer: 5
   m_Name: Special
   m_TagString: Untagged
@@ -14720,9 +14739,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220404209}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SelectSound
+      - m_Target: {fileID: 1286562066}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        m_MethodName: HealSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14744,6 +14763,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1286562066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286562061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a072b28c43d7e49689723a2a4f77f6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1310797437
 GameObject:
   m_ObjectHideFlags: 0
@@ -16268,6 +16299,7 @@ GameObject:
   - component: {fileID: 1524112065}
   - component: {fileID: 1524112064}
   - component: {fileID: 1524112066}
+  - component: {fileID: 1524112067}
   m_Layer: 5
   m_Name: Run
   m_TagString: Untagged
@@ -16377,9 +16409,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220404209}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SelectSound
+      - m_Target: {fileID: 1524112067}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        m_MethodName: RunButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16401,6 +16433,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1524112067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524112062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a072b28c43d7e49689723a2a4f77f6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544743879
 GameObject:
   m_ObjectHideFlags: 0

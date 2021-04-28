@@ -14,4 +14,10 @@ public class Moves : ScriptableObject
     public Sprite moveType;
     public Color effectColor;
     public GameObject miniGame;
+    public string sfx;
+
+    public void PlaySFX()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Combat/SFX/" + sfx);
+    }
 }

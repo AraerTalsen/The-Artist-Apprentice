@@ -22,3 +22,4 @@ MonoBehaviour:
   effectColor: {r: 1, g: 0, b: 0, a: 0}
   miniGame: {fileID: 1000860756659455549, guid: f8ccf1d37885e68419017b14d6185ae0,
     type: 3}
+  sfx: Player Damaged

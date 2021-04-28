@@ -19,10 +19,10 @@ public class NeedleDestroy : MonoBehaviour
 
     public Transform textSpawnArea;
 
-    public static Entity[] targets;
-    public static Moves m;
-    public static CombatSystem cs;
-    public static GameObject miniGameBody;
+    public Entity[] targets;
+    public Moves m;
+    public CombatSystem cs;
+    public GameObject miniGameBody;
 
     private PlayerButtons pb;
     private int success = 0;
@@ -33,6 +33,11 @@ public class NeedleDestroy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         pb = FindObjectOfType<PlayerButtons>();
+
+        targets = MinigameData.targets;
+        m = MinigameData.m;
+        cs = MinigameData.cs;
+        miniGameBody = MinigameData.miniGameBody;
     }
 
     // Update is called once per frame

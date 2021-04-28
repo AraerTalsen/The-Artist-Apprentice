@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   val: -1
   cost: 0
+  sf: {fileID: 0}
   targets:
   - {fileID: 0}
   isFriendlyTarget: 0
   moveType: {fileID: 21300000, guid: fc83cea013139624a92e27503717ddec, type: 3}
   effectColor: {r: 1, g: 0.053233847, b: 0, a: 1}
+  miniGame: {fileID: 0}
+  sfx: Player Damaged

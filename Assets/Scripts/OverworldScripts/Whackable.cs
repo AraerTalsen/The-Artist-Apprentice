@@ -30,10 +30,9 @@ public class Whackable : MonoBehaviour
                     }
                     
                 }
-                ActiveOverworldEntity.entityInDimension[1][type][id] = false;
-                gameObject.SetActive(false);
             }
-
+            ActiveOverworldEntity.entityInDimension[1][type][id] = false;
+            gameObject.SetActive(false);
         }
     }
 
