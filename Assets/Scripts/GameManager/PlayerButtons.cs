@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerButtons : MonoBehaviour
 {
-
+    public Image paintSlider, specialButton;
 
     //Active parties
     private Entity[] a, targetedParty;
@@ -26,6 +26,7 @@ public class PlayerButtons : MonoBehaviour
     private Moves[] currentMoves;
     private int targetCount = 0, maxTargets = 0;
     private Entity[] targets = new Entity[7];
+    private bool isAllyEntity = false;
     
 
     private void Awake()
@@ -38,8 +39,9 @@ public class PlayerButtons : MonoBehaviour
         e = enemies;
         a = ally;
         currentMoves = m;
+        isAllyEntity = isAlly;
 
-        if (isAlly)
+        if (isAllyEntity)
         {
             c.gameObject.SetActive(true);
             c.transform.position = pos[current];
@@ -80,6 +82,12 @@ public class PlayerButtons : MonoBehaviour
     public void SelectMove()
     {
         int.TryParse(EventSystem.current.currentSelectedGameObject.name, out select);
+
+        if (isAllyEntity && currentMoves[select].cost > CombatSystem.p.currentPaint)
+        {
+            StartCoroutine("OutOfPaint");
+            return;
+        }
 
         for (int i = 0; i < currentMoves.Length; i++)
             c.transform.GetChild(i).gameObject.SetActive(false);
@@ -126,5 +134,14 @@ public class PlayerButtons : MonoBehaviour
 
             cs.CheckForMiniGame(targets, currentMoves[select]);
         }
+    }
+
+    private IEnumerator OutOfPaint()
+    {
+        paintSlider.color = Color.red;
+        specialButton.color = Color.red;
+        yield return new WaitForSeconds(.25f);
+        paintSlider.color = Color.white;
+        specialButton.color = Color.white;
     }
 }

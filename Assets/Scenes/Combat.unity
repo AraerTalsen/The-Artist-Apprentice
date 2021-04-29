@@ -1737,6 +1737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af266a666c48284d8e356b3e39f8f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintSlider: {fileID: 231280946}
+  specialButton: {fileID: 1286562063}
   pos:
   - {x: -6.5, y: -0.5}
   - {x: -3, y: 2}
@@ -1845,6 +1847,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &231280946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3214521712225261737, guid: 15ee1b513f4cc454b94055c430fcb435,
+    type: 3}
+  m_PrefabInstance: {fileID: 3214521712152784038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &280456369
@@ -19254,6 +19268,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Text Box
       objectReference: {fileID: 0}
+    - target: {fileID: 3214521711627999886, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214521711627999886, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214521711627999886, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3214521712195630568, guid: 15ee1b513f4cc454b94055c430fcb435,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -19269,6 +19298,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 575197834}
+    - target: {fileID: 3214521712225261737, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214521712225261737, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214521712225261737, guid: 15ee1b513f4cc454b94055c430fcb435,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3214521712611532401, guid: 15ee1b513f4cc454b94055c430fcb435,
         type: 3}
       propertyPath: m_AnchorMax.y

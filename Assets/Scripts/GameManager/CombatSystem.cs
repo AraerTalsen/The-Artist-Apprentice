@@ -14,7 +14,8 @@ public class CombatSystem : MonoBehaviour
     public Enemy[] dA;
 
     //Combative parties
-    public Player player1; 
+    public Player player1;
+    public static Player p;
 
     public static Enemy[] enemyParty;
     public static Entity[] allyParty;
@@ -47,6 +48,7 @@ public class CombatSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        p = player1;
         EnemyPartyBuilder();
 
         uh = FindObjectOfType<UpdateHUD>();
@@ -121,7 +123,7 @@ public class CombatSystem : MonoBehaviour
             all[i] = allyParty[i];
             allyParty[i].currentBody = g;
         }
-        ((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).currentPaint;
+        //((Player)allyParty[0]).currentPaint = ((Player)allyParty[0]).currentPaint;
     }
 
     private void SetUpCombat()
