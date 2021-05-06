@@ -9,8 +9,10 @@ public class OpenChestScript : MonoBehaviour
     public Text itemPickedUpDescription;
     public List<Sprite> chestStates;
     public SpriteRenderer chestSpriteRenderer;
+    public Player playerScriptableObject;
+    public 
 
-    private void Start()
+    void Start()
     {
         if (GlobalControl.chestKeyCollected == false && GlobalControl.chestOpened == false)
         {
@@ -51,6 +53,7 @@ public class OpenChestScript : MonoBehaviour
             itemPickedUpDescription.text = itemPickedUpText[4];
             chestSpriteRenderer.sprite = chestStates[1];
             GlobalControl.relicFiveCollected = true;
+            GlobalControl.chestOpened = true;
         }
         else if (GlobalControl.chestOpened == true)
         {

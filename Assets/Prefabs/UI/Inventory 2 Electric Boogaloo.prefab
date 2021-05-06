@@ -1667,11 +1667,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicNotDiscoveredImage: {fileID: -5319726951464505707, guid: 255838d2254d9434baf65a04fd5ba03e,
     type: 3}
-  relicDiscoveredImage: {fileID: -6410486855767057518, guid: 5f9ded3f53c99434687dc66db538a0d4,
+  relicDiscoveredImage: {fileID: -3791724164556876944, guid: 811d322b44e5b554eb294201d63f16a2,
     type: 3}
   relicDescriptionTextBox: {fileID: 7868639117337237820}
   relicDescriptionImage: {fileID: 3685481456699595766}
-  relicDescription: This flower is cool.
+  relicDescription: Applies poison on basic attacks
   relicNotDiscoveredDescription: ??????????????????????????????
   buttonImage: {fileID: 2574704368740159559}
 --- !u!1 &1222289212866249125
