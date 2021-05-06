@@ -16,12 +16,24 @@ MonoBehaviour:
   - myVoice: {fileID: 0}
     myText: Howdy! You don't look like yer from 'round these parts, you lookin' for
       the Master?
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - myVoice: {fileID: 0}
     myText: I ain't seen him since the last full moon 'bout three weeks back. It's
       been a real pig sty 'round here since.
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - myVoice: {fileID: 0}
     myText: Anywho, when the Master was visitin', he used to drink from that there
       fountain to stay healthy. It's magic, you see?
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - myVoice: {fileID: 0}
-    myText: Drinkin' from that there fountain can heal you right up, but too much
-      and you'll catch somethin fierce.
+    myText: Drinkin' from that there fountain can heal you right up, but drink too
+      much and the magic wears right off.
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []

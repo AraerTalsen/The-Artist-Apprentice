@@ -49,7 +49,6 @@ public class UseFountainScript : MonoBehaviour
                 this.gameObject.SetActive(false);
                 break;
             case 3:
-                player.currentHP = player.currentHP - 1;
                 if (player.currentHP >= player.maxHP)
                     player.currentHP = player.maxHP;
                 fountainSpriteRenderer.sprite = fountainSpriteStates[3];
