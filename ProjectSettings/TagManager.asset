@@ -26,6 +26,7 @@ TagManager:
   - InsideOfCaveLeftDoor
   - InsideOfCaveRightDoor
   - Chest
+  - ChestKey
   layers:
   - Default
   - TransparentFX

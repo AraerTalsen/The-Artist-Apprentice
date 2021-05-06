@@ -257,7 +257,15 @@ public class PlayerMovement : MonoBehaviour
             GlobalControl.relicFourCollected = true;
         }
 
-        if(other.gameObject.tag == "CaveDoorLow")
+        if (other.gameObject.tag == "ChestKey")
+        {
+            Destroy(other.gameObject);
+            ItemPickedUp.mostRecentItemPickedUp = 4;
+            itemPickedUpPopUp.SetActive(true);
+            GlobalControl.chestKeyCollected = true;
+        }
+
+        if (other.gameObject.tag == "CaveDoorLow")
         {
             this.transform.position = new Vector3(73.5f, 70.75f, 0);
             inCave = true;
@@ -280,6 +288,8 @@ public class PlayerMovement : MonoBehaviour
             this.transform.position = new Vector3(-10.5f, 40.5f, 0);
             inCave = false;
         }
+
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)

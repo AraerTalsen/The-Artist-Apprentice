@@ -14,6 +14,7 @@ public class GlobalControl : MonoBehaviour
     public static bool relicOneCollected, relicTwoCollected, relicThreeCollected, relicFourCollected, relicFiveCollected, relicSixCollected;
     public static bool inkProofShoesOn = false;
     public static int numDrinksFromFountain;
+    public static bool chestKeyCollected, chestOpened;
 
     void Awake()
     {
