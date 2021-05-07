@@ -15,6 +15,7 @@ public class Immobilizers : StatusEffect
         if (duration == 0)
         {
             host.statusEffect[activationPeriod] = null;
+            SetIcon(false);
             Destroy(this);
         }  
     }

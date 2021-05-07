@@ -36,6 +36,7 @@ public class CombatSystem : MonoBehaviour
     private PlayerButtons pb;
 
     //State revision
+    public StatusEffect poison;
     public static int livingEnemies;
     public static int numMinions;
     private bool debugSession = false;
@@ -48,6 +49,7 @@ public class CombatSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GlobalControl.relicFiveCollected = true;
         p = player1;
         EnemyPartyBuilder();
 
@@ -154,7 +156,11 @@ public class CombatSystem : MonoBehaviour
             case 0:
             {
                 if (all[currentEntity].statusEffect[0] != null)
-                    all[currentEntity].statusEffect[0].Effect();
+                    {
+                        StatusEffect sf = all[currentEntity].statusEffect[0];
+                        sf.Effect();
+                        StartCoroutine(sf.ColorBlink());
+                    }
                 else
                 {
                     state = 1;
@@ -199,7 +205,7 @@ public class CombatSystem : MonoBehaviour
 
     public void CheckForMiniGame(Entity[] targets, Moves m)
     {
-        if (currentEntity == 0 && m.miniGame != null)
+        if (all[currentEntity].isAlly && m.miniGame != null)
         {
             GameObject g = Instantiate(m.miniGame);
 
@@ -218,11 +224,15 @@ public class CombatSystem : MonoBehaviour
         {
             targets[i].currentHP += all[currentEntity].HitValue * m.val * mod;
 
-            if (m.sf != null && targets[i].statusEffect[m.sf.activationPeriod] == null)
+
+            bool relicEffect = currentEntity == 0 && GlobalControl.relicFiveCollected;
+            StatusEffect sf = !relicEffect ? m.sf : poison;
+            if (sf != null && targets[i].statusEffect[sf.activationPeriod] == null)
             {
-                StatusEffect sf = Instantiate(m.sf);
-                targets[i].statusEffect[m.sf.activationPeriod] = sf;
+                sf = Instantiate(sf);
+                targets[i].statusEffect[sf.activationPeriod] = sf;
                 sf.host = targets[i];
+                sf.SetIcon(true);
             }
 
             StartCoroutine(ColorBlink(m, targets[i]));

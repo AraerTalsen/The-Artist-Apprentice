@@ -15,10 +15,19 @@ public class specialMicro : MonoBehaviour
     public bool success;
     public TextMeshProUGUI successText;
 
+    public Entity[] targets;
+    public Moves m;
+    public CombatSystem cs;
+    public GameObject miniGameBody;
+
     // Start is called before the first frame update
     void Start()
     {
         //canPress = true;
+        targets = MinigameData.targets;
+        m = MinigameData.m;
+        cs = MinigameData.cs;
+        miniGameBody = MinigameData.miniGameBody;
     }
 
     private void OnEnable()
@@ -74,6 +83,7 @@ public class specialMicro : MonoBehaviour
             {
                 success = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (specialNeedle.needleValue == 1)
         {
@@ -85,6 +95,7 @@ public class specialMicro : MonoBehaviour
             {
                 success = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (specialNeedle.needleValue == 2)
         {
@@ -96,6 +107,7 @@ public class specialMicro : MonoBehaviour
             {
                 success = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (specialNeedle.needleValue == 3)
         {
@@ -107,6 +119,7 @@ public class specialMicro : MonoBehaviour
             {
                 success = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
 
         if (success == true)
@@ -117,5 +130,18 @@ public class specialMicro : MonoBehaviour
         {
             successText.text = "Fail";
         }
+    }
+
+    private IEnumerator DestroyMiniGame()
+    {
+        yield return new WaitForSeconds(.75f);
+
+        if (success) cs.UseMove(targets, m, 1);
+        else
+        {
+            cs.state = 4;
+            cs.StateMachine();
+        }
+        Destroy(miniGameBody);
     }
 }

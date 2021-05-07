@@ -20,5 +20,6 @@ MonoBehaviour:
   isFriendlyTarget: 1
   moveType: {fileID: 21300000, guid: 3bf055ccf9296164ba6aafcc926c24e2, type: 3}
   effectColor: {r: 0, g: 0.2386322, b: 1, a: 1}
-  miniGame: {fileID: 0}
+  miniGame: {fileID: 1547739519473254988, guid: e11a40802199b3540a5442542b617b30,
+    type: 3}
   sfx: Heal

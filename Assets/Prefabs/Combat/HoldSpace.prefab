@@ -58,7 +58,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 110
   m_TargetDisplay: 0
 --- !u!114 &1547739519473254990
 MonoBehaviour:
@@ -565,6 +565,10 @@ MonoBehaviour:
   canPress: 0
   success: 0
   successText: {fileID: 1547739521267235090}
+  targets: []
+  m: {fileID: 0}
+  cs: {fileID: 0}
+  miniGameBody: {fileID: 0}
 --- !u!1 &1547739520442873422
 GameObject:
   m_ObjectHideFlags: 0

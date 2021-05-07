@@ -8,6 +8,7 @@ public class PoisonDamager : StatusEffect
     public override void Effect()
     {
         host.currentHP -= val;
+
         CombatSystem cs = FindObjectOfType<CombatSystem>();
         cs.state = 1;
         cs.StateMachine();
@@ -16,6 +17,7 @@ public class PoisonDamager : StatusEffect
         if (duration == 0)
         {
             host.statusEffect[activationPeriod] = null;
+            SetIcon(false);
             Destroy(this);
         }
     }

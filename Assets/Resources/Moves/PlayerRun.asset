@@ -19,5 +19,6 @@ MonoBehaviour:
   isFriendlyTarget: 0
   moveType: {fileID: 0}
   effectColor: {r: 0, g: 0, b: 0, a: 0}
-  miniGame: {fileID: 0}
+  miniGame: {fileID: 6515015058178944072, guid: 1638c20d9dc7ee543808cbba13f86bad,
+    type: 3}
   sfx: 

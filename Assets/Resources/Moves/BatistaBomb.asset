@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 0}
   isFriendlyTarget: 0
   moveType: {fileID: 21300000, guid: fc83cea013139624a92e27503717ddec, type: 3}
-  effectColor: {r: 1, g: 0, b: 0, a: 0}
+  effectColor: {r: 1, g: 0, b: 0, a: 1}
   miniGame: {fileID: 1000860756659455549, guid: f8ccf1d37885e68419017b14d6185ae0,
     type: 3}
   sfx: Player Damaged

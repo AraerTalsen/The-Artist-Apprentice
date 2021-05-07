@@ -107,7 +107,7 @@ public class PlayerButtons : MonoBehaviour
         }
 
         maxTargets = currentMoves[select].targets.Length;
-        if (maxTargets == 0) ((Run)currentMoves[select]).RunAway();
+        if (maxTargets == 0) cs.CheckForMiniGame(targets, currentMoves[select]);
         else
         {
             for (int i = 0; i < targetedParty.Length; i++)

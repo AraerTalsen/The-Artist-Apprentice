@@ -16,6 +16,9 @@ public class countdown : MonoBehaviour
     public Transform threeQuarterPoint;
     public Transform fullPoint;
 
+    public CombatSystem cs;
+    public GameObject miniGameBody;
+
     public float needleSpeed;
 
     public bool runSuccess;
@@ -23,7 +26,8 @@ public class countdown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        cs = MinigameData.cs;
+        miniGameBody = MinigameData.miniGameBody;
     }
 
     private void OnEnable()
@@ -93,8 +97,8 @@ public class countdown : MonoBehaviour
 
     public void moveNeedle()
     {
-      runNeedleValue = Random.RandomRange(0, 4);
-
+        runNeedleValue = Random.RandomRange(0, 4);
+        
         if (runNeedleValue == 0)
         {
             if (RunMicroGame.runValue <= 100)
@@ -105,6 +109,7 @@ public class countdown : MonoBehaviour
             {
                 runSuccess = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (runNeedleValue == 1)
         {
@@ -116,17 +121,20 @@ public class countdown : MonoBehaviour
             {
                 runSuccess = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (runNeedleValue == 2)
         {
             if (RunMicroGame.runValue >= 50)
             {
                 runSuccess = true;
+                
             }
             else
             {
                 runSuccess = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (runNeedleValue == 3)
         {
@@ -138,6 +146,7 @@ public class countdown : MonoBehaviour
             {
                 runSuccess = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
         else if (runNeedleValue == 4)
         {
@@ -149,8 +158,20 @@ public class countdown : MonoBehaviour
             {
                 runSuccess = false;
             }
+            StartCoroutine("DestroyMiniGame");
         }
     }
 
+    private IEnumerator DestroyMiniGame()
+    {
+        yield return new WaitForSeconds(.75f);
 
+        if (runSuccess) cs.LeaveBattle();
+        else
+        {
+            cs.state = 4;
+            cs.StateMachine();
+        }
+        Destroy(miniGameBody);
+    }
 }
