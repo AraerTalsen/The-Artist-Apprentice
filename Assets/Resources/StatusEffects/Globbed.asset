@@ -18,3 +18,4 @@ MonoBehaviour:
   host: {fileID: 0}
   effectColor: {r: 0.4340101, g: 0.12773226, b: 0.735849, a: 1}
   effectIcon: {fileID: 21300000, guid: 02e757b24296a442ba6e79fc95d938ea, type: 3}
+  nullIcon: {fileID: 21300000, guid: a4f581bde63f7974d90697636ccf9ad7, type: 3}

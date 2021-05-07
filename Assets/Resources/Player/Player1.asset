@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHP: 30
   currentHP: 30
   baseHitValue: 5
-  HitValue: 22
+  HitValue: 5
   targeted: 0
   isDead: 0
   isAlly: 1

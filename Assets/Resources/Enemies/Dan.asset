@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: Dan
   Description: Shit
-  maxHP: 15
-  currentHP: 15
+  maxHP: 20
+  currentHP: 20
   baseHitValue: 2
   HitValue: 2
   targeted: 0

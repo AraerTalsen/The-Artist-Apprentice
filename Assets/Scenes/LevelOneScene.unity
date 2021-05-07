@@ -219609,7 +219609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054dd2df5d91203468b212fe4c1a638e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 0.98
+  interactRange: 1.1
   interactIcon: {fileID: 1636465660}
   OverworldInteractableOptionsPanel: {fileID: 1256535872}
 --- !u!212 &400702099

@@ -16,8 +16,8 @@ MonoBehaviour:
   Description: Fuck
   maxHP: 15
   currentHP: 15
-  baseHitValue: 2
-  HitValue: 2
+  baseHitValue: 3
+  HitValue: 3
   targeted: 0
   isDead: 0
   isAlly: 0

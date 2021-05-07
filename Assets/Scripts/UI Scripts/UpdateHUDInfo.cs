@@ -22,11 +22,18 @@ public class UpdateHUDInfo : MonoBehaviour
 
         HPSlider.value = playerScriptable.currentHP;
         PaintSlider.value = playerScriptable.currentPaint;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        HPSlider.maxValue = playerScriptable.maxHP;
+        PaintSlider.maxValue = playerScriptable.maxPaint;
+
+        CurrentHPTxt.text = "" + playerScriptable.currentHP;
+
+        HPSlider.value = playerScriptable.currentHP;
+        PaintSlider.value = playerScriptable.currentPaint;
     }
 }

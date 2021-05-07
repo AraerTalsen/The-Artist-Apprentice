@@ -50,7 +50,6 @@ public class CombatSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalControl.relicFiveCollected = true;
         p = player1;
         EnemyPartyBuilder();
 

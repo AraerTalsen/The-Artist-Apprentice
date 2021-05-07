@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: Mike
   Description: It's me Mike Murphy!
-  maxHP: 15
-  currentHP: 15
-  baseHitValue: 2
-  HitValue: 2
+  maxHP: 25
+  currentHP: 25
+  baseHitValue: 1
+  HitValue: 1
   targeted: 0
   isDead: 0
   isAlly: 0
