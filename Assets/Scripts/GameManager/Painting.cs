@@ -195,5 +195,6 @@ public class Painting : MonoBehaviour
         om.inkTiles[index].SetActive(false);
         ActiveOverworldEntity.entityCount[1]--;
         eaHUD.UpdateDisplay();
+        index = -1;
     }
 }

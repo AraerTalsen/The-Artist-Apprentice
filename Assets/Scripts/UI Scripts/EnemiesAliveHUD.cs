@@ -18,7 +18,7 @@ public class EnemiesAliveHUD : MonoBehaviour
     public void UpdateDisplay()
     {
         ea = FindObjectOfType<EntityActivator>();
-        t.text = "Portals Remaining: " + ActiveOverworldEntity.entityCount[1];
+        t.text = "Corrupted Zones Remaining: " + ActiveOverworldEntity.entityCount[1];
 
         if (ActiveOverworldEntity.entityCount[1] == 0)
         {
