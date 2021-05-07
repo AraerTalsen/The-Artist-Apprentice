@@ -10,9 +10,13 @@ public class EnemiesAliveHUD : MonoBehaviour
     public TextMeshProUGUI t;
     private EntityActivator ea;
 
-    public void Start()
+    private void Start()
     {
-        print(1);
+        UpdateDisplay();
+    }
+
+    public void UpdateDisplay()
+    {
         ea = FindObjectOfType<EntityActivator>();
         t.text = "Portals Remaining: " + ActiveOverworldEntity.entityCount[1];
 

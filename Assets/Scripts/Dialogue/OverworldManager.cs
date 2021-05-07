@@ -33,7 +33,7 @@ public class OverworldManager : MonoBehaviour
         {
             if (inkPortals[i].activeSelf == false)
             {
-                inkTiles[i].SetActive(false);
+                //inkTiles[i].SetActive(false);
 
                 //I am so sorry it's so ugly but brain is mush
                 if(GlobalControl.relicOneCollected == false && inkPortals[0].activeSelf == false)

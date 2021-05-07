@@ -36,6 +36,7 @@ public class CombatSystem : MonoBehaviour
     private PlayerButtons pb;
 
     //State revision
+    public static int index;
     public StatusEffect poison;
     public static int livingEnemies;
     public static int numMinions;
@@ -374,7 +375,7 @@ public class CombatSystem : MonoBehaviour
                 ActiveOverworldEntity.entityInDimension[1][0][id] = false;
                 if(isPortal)
                 {
-                    ActiveOverworldEntity.entityCount[1]--;
+                    PaintInfo.index = index;
                     isPortal = false;
                 }
             }

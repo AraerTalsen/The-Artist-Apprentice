@@ -17,6 +17,8 @@ public class PortalOverworldScript : MonoBehaviour
     public float portalSpawnMaxX, portalSpawnMaxY, portalSpawnMinX, portalSpawnMinY;
     public Transform portalTransform;
 
+    public int index;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,7 @@ public class PortalOverworldScript : MonoBehaviour
     {
         CombatSystem.id = GetComponent<Whackable>().id;
         CombatSystem.enemyParty = party;
+        CombatSystem.index = index;
         StartCoroutine(LoadLevel("Combat"));
     }
 
