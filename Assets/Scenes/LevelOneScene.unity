@@ -251816,6 +251816,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory 2 Electric Boogaloo
       objectReference: {fileID: 0}
+    - target: {fileID: 7907616636584346107, guid: cc671826b89c548fcbfdbab3c23c8ac4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7907616636584346107, guid: cc671826b89c548fcbfdbab3c23c8ac4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc671826b89c548fcbfdbab3c23c8ac4, type: 3}
 --- !u!224 &841274165 stripped

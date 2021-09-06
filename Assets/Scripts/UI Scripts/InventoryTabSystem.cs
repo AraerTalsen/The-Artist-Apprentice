@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 public class InventoryTabSystem : MonoBehaviour
 {
-    public GameObject MinionPanel, PlayerPanel, ItemsPanel;
+    public GameObject MinionPanel, PlayerPanel, ItemsPanel, QuestPanel;
 
     public void EnableMinionPanel()
     {
         MinionPanel.SetActive(true);
         PlayerPanel.SetActive(false);
         ItemsPanel.SetActive(false);
+        QuestPanel.SetActive(false);
 
     }
 
@@ -18,6 +19,7 @@ public class InventoryTabSystem : MonoBehaviour
         MinionPanel.SetActive(false);
         PlayerPanel.SetActive(true);
         ItemsPanel.SetActive(false);
+        QuestPanel.SetActive(false);
     }
 
     public void EnableItemsPanel()
@@ -25,6 +27,15 @@ public class InventoryTabSystem : MonoBehaviour
         MinionPanel.SetActive(false);
         PlayerPanel.SetActive(false);
         ItemsPanel.SetActive(true);
+        QuestPanel.SetActive(false);
+    }
+
+    public void EnableQuestPanel()
+    {
+        MinionPanel.SetActive(false);
+        PlayerPanel.SetActive(false);
+        ItemsPanel.SetActive(false);
+        QuestPanel.SetActive(true);
     }
 
 }
