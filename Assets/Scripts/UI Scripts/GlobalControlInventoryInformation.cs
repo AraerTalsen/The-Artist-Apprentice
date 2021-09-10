@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GlobalControlInventoryInformation : MonoBehaviour
 {
-
-
     public static GlobalControlInventoryInformation Instance;
 
     void Awake()

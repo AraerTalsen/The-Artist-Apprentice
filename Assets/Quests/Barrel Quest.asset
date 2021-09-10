@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6043b376748efde4ea6737c0a4e222f4, type: 3}
-  m_Name: Kill Quest
+  m_Script: {fileID: 11500000, guid: 472886682b5cfb4488e3f6baf8095e32, type: 3}
+  m_Name: Barrel Quest
   m_EditorClassIdentifier: 
-  questName: 
-  questDescription: 
+  questName: Find the Barrel
+  questDescription: Find that weird dude's barrel
+  objectives:
+  - barrel: {fileID: 11400000, guid: f75ac9820dc715a4aa35ad0de240b495, type: 2}
+    requiredAmount: 1

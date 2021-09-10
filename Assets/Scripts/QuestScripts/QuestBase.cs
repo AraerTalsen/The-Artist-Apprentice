@@ -12,4 +12,22 @@ public class QuestBase : ScriptableObject
     public int[] RequiredAmount { get; set; }
 
     public bool isCompleted { get; set; }
+
+    public virtual void InitializeQuest()
+    {
+        CurrentAmount = new int[RequiredAmount.Length];
+    }
+
+    public void Evaluate()
+    {
+        for(int i = 0; i < RequiredAmount.Length; i++)
+        {
+            if(CurrentAmount[i] < RequiredAmount[i])
+            {
+                return;
+            }
+        }
+
+        Debug.Log("Quest is completed");
+    }
 }

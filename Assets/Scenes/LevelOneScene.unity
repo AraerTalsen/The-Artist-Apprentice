@@ -218307,7 +218307,7 @@ PrefabInstance:
     - target: {fileID: 4048037190172155731, guid: c9041df8c1db04f41896cb762819526a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.03
+      value: 19.9
       objectReference: {fileID: 0}
     - target: {fileID: 4048037190172155731, guid: c9041df8c1db04f41896cb762819526a,
         type: 3}
@@ -241316,6 +241316,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1391841374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &642815264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642815266}
+  - component: {fileID: 642815265}
+  m_Layer: 0
+  m_Name: TestingQuestEmptyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &642815265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642815264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8600047ec08c3499e6a6a9047d3c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 74c8accdfe336e14eb049b4bee0a7bba, type: 2}
+--- !u!4 &642815266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642815264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.424952, y: 41.1311, z: -11.259255}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &643729148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251706,6 +251750,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 329695013}
     m_Modifications:
+    - target: {fileID: 5952445824317376620, guid: cc671826b89c548fcbfdbab3c23c8ac4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952445824317376620, guid: cc671826b89c548fcbfdbab3c23c8ac4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952445824317376620, guid: cc671826b89c548fcbfdbab3c23c8ac4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7863152105415814341, guid: cc671826b89c548fcbfdbab3c23c8ac4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -306673,7 +306732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491295714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.51, y: 63.35, z: 0}
+  m_LocalPosition: {x: -12.8, y: 25.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1850075523}
@@ -376787,6 +376846,7 @@ GameObject:
   - component: {fileID: 1721531558}
   - component: {fileID: 1721531560}
   - component: {fileID: 1721531561}
+  - component: {fileID: 1721531562}
   m_Layer: 0
   m_Name: QuestItemBarrel
   m_TagString: barrelQuestItem
@@ -376853,7 +376913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721531557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.7, y: 11.2, z: 0}
+  m_LocalPosition: {x: -16.9, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 664320456}
@@ -376905,6 +376965,19 @@ MonoBehaviour:
   whackable: 0
   canvas: {fileID: 0}
   playerPaint: {fileID: 0}
+--- !u!114 &1721531562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721531557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd8cf0c2e687e84088ecfdf6b2140de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 11400000, guid: f75ac9820dc715a4aa35ad0de240b495, type: 2}
 --- !u!1001 &1724481158
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,6 +16,9 @@ public class GlobalControl : MonoBehaviour
     public static int numDrinksFromFountain;
     public static bool chestKeyCollected, chestOpened;
 
+    public delegate void OnBarrelPickupCallBack(QuestItemProfile questItemProfile);
+    public OnBarrelPickupCallBack onBarrelPickupCallBack;
+
     void Awake()
     {
         if (Instance == null)

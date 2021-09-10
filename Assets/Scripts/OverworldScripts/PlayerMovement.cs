@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool inCave;
 
+
     void Start()
     {
         //if (!playerExists)
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         //{
         //    Destroy(gameObject);
         //}
+
 
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -214,7 +216,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(other.gameObject.tag == "barrelQuestItem")
         {
-            Destroy(other.gameObject);
             barrelQuestItemPickedUp = true;
         }
 
